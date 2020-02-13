@@ -2,7 +2,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # theme settings
-ZSH_THEME="lukerandall"
+ZSH_THEME="tjkirch"
 
 # pluging settings
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
