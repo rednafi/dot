@@ -1,3 +1,8 @@
+# =====================
+# MINIMALIST ZSHRC
+# AUTHOR: REDNAFI
+# =====================
+
 # omz path
 export ZSH="$HOME/.oh-my-zsh"
 
