@@ -12,8 +12,14 @@ apt install zsh
 echo "Changing the default shell to zsh!"
 chsh -s $(which zsh)
 
-# load profile from zprolie
-[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+# load profile from zprofile
+if grep -Fxq "[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'" ~/.zprofile
+then
+    echo "Zprofile is already updated!"
+else
+    echo "Updating zprofile..."
+    echo "[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'" >> ~/.zprofile
+fi
 
 # install oh-my-zsh
 if [[ -d "$HOME/.oh-my-zsh" ]]
@@ -46,5 +52,5 @@ fi
 
 
 #install gogh terminal theme
-sudo apt-get install dconf-cli uuid-runtime
-bash -c  "$(curl -sLo- https://git.io/vQgMr)"
+# sudo apt-get install dconf-cli uuid-runtime
+# bash -c  "$(curl -sLo- https://git.io/vQgMr)"
