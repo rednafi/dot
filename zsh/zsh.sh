@@ -52,5 +52,5 @@ fi
 
 
 #install gogh terminal theme
-# sudo apt-get install dconf-cli uuid-runtime
-# bash -c  "$(curl -sLo- https://git.io/vQgMr)"
+sudo apt-get install dconf-cli uuid-runtime
+bash -c  "$(curl -sLo- https://git.io/vQgMr)"
