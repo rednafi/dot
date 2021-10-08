@@ -1,11 +1,8 @@
 <div align="center">
 
-<h1>Setup</h1>
-<strong>>> <i>Dotfiles & Workmachine Setup Steps</i> <<</strong>
+![img](./art/logo.png)
 
-&nbsp;
-
-<img src="https://images.unsplash.com/photo-1505855788694-023053764ae5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1385&q=80" alt="containers">
+<strong>>> <i>Dotfiles & Workspace Setup</i> <<</strong>
 
 &nbsp;
 
