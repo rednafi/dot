@@ -6,9 +6,9 @@
 
 </div>
 
-This repository reflects the setup of my workspace. I like to keep my work machine as stateless as possible; meaning I can completely wipe out the OS, start everything from scratch, and become productive within an hour at max. Here I've documented a few building blocks of my system, for example—dotfiles, configurations, scripts to run after a new OS installation, steps to carry out so that I don't find myself fumbling for missing pieces while I'm working on something, etc.
+This repository reflects the setup of my workspace. I like to keep my work machine as stateless as possible; meaning I can completely wipe out the OS, start over everything from scratch, and become productive within an hour at max. Here I've documented a few building blocks of my system, for example—dotfiles, configurations, scripts to run after a new OS installation, steps to carry out so that I don't find myself fumbling for missing pieces while I'm working on something, etc.
 
-Also, I use this repository to keep my tool proliferation in check. As SWEs, we tend to keep adding plethora of tools to our toolchain which often results in a irreproducible and unmaintainable workflow. Simplicity spawns sophistry.
+Also, I use this repository to keep my tool proliferation in check. As SWEs, we tend to keep adding a plethora of tools to our toolchain which often results in an irreproducible and unmaintainable workflow. Simplicity spawns sophistry.
 
 ## Work Machine
 
@@ -17,6 +17,7 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
 ## OS Settings
 
 * OS                    : Ubuntu 20.04 LTS
+* Terminal              : Gnome terminal running plain Bash
 * System Zoom           : 1.25, change via `gnome-tweaks`
 * System Font           : FreeSans Regular
 * Mono Font             : Jetbrains Mono Regular
@@ -25,14 +26,41 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
 ## OS Pre Installation Steps
 
 * Take a backup of the following entities and put them in a folder called `backup`:
+
     * `.ssh` directory
     * `.bashrc` and `.bash_history`
     * `.ovpn` config
-
+    * `.env` files and credentials of different projects
 
 ## OS Post Installation Steps
 
-### 🔐 Restore SSH
+### Create Directory Layout
+
+* Work and personal project directory layout should always have the following structure:
+
+    ```
+    ~/canvas
+    ├── company_a
+    │   ├── project_1
+    │   └── project_2
+    ├── company_b
+    │   ├── project_1
+    │   └── project_2
+    └── personal
+        ├── project_1
+        └── project_2
+    ```
+
+* To create the above project directory layout, run:
+
+
+```
+mkdir -p ~/canvas/<company_name> && mkdir -p ~/canvas/personal
+```
+
+* Before starting to restore things, put the `backup` folder temporarily in `~/canvas/personal/` directory.
+
+### Restore SSH
 
 * Copy the backup ssh keys into the `~/.ssh` folder:
 
@@ -47,15 +75,13 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
     chmod -R 700 ~/.ssh
     ```
 
-* If you've changed the username from `rednafi` to anything else, in that case you've to regenerate the public ssh key from the private key.
+* If you've changed the username from `rednafi` to anything else, in that case, you've to regenerate the public ssh key from the private key.
 
-    First copy the `id_rsa` private key to the `~/.ssh` folder and change the permisison via the commands stated above. Then run:
+    First copy the `id_rsa` private key to the `~/.ssh` folder and change the permission via the commands stated above. Then run:
 
     ```
     ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
     ```
-
-* Put all the database `*.pem` keys in the `~/.ssh` folder.
 
 ### Restore Bashrc & Bash History
 
@@ -65,14 +91,16 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
     ```
 * Overwrite `.bashrc`.
     ```
-    cp .bashrc ~/.bashrc
+    cp backup/.bashrc ~/.bashrc
     ```
 * Overwrite `.bash_history`.
     ```
-    cp .bash_history ~/.bash_history
+    cp backup/.bash_history ~/.bash_history
     ```
 
-### ⚙️ Install Fonts
+### Install Tools
+
+Although all of these tools are download via scripts, they still need some manual supervision. That's why it's better to run them one by one instead of in a single go.
 
 * Install Jetbrains Mono font:
 
@@ -80,10 +108,37 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
 make install_fonts
 ```
 
+* Install Python:
+
+```
+make install_python
+```
+
+* Install Golang:
+
+```
+make install_go
+```
+
+* Install misc tools. This should install:
+    * code
+    * curl
+    * dbeaver
+    * dnsutils
+    * docker
+    * htop
+    * jq
+    * nano
+    * net-tools
+    * postman
+    * telnet
+```
+make install_tools
+```
 
 ## Issues & Fixes
 
-### 🪑 Fix Ctrl + Shift + E Hijacking in VSCode
+### Fix Ctrl + Shift + E Hijacking in VSCode
 
 This happens due to an obscure setting in IBus. To solve this:
 
@@ -91,11 +146,11 @@ This happens due to an obscure setting in IBus. To solve this:
     ```
     ibus-setup
     ```
-* Go to the `Emoji` tab and delete the shortcut for emoji-annotation.
+* Go to the `Emoji` tab and delete the shortcut for emoji annotation.
 
 ### Fix Inconsistent Gnome Settings
 
-* Execute this to hide the fat and ugly Gnome titlebar.
+* Execute this to hide the fat and ugly Gnome title bar.
 
     ```
     gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
@@ -108,7 +163,7 @@ This happens due to an obscure setting in IBus. To solve this:
     gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
     ```
 
-### 🪑 Fix Ubuntu Mirror Issues
+### Fix Ubuntu Mirror Issues
 
 * Select mirror server from [here](https://launchpad.net/ubuntu/+archivemirrors).
 
