@@ -1,6 +1,7 @@
 <div align="center">
 
-![img](./art/logo.png)
+![logo](https://user-images.githubusercontent.com/30027932/136623844-b4a98af7-fad7-49af-acd5-75520f000f44.png)
+
 
 <strong>>> <i>Dotfiles & Workspace Setup</i> <<</strong>
 
