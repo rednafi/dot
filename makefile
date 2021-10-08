@@ -19,3 +19,8 @@ install_python:
 install_tools:
 	chmod +x scripts/install_tools.sh
 	./scripts/install_tools.sh
+
+.PHONY: install_fonts
+install_fonts:
+	chmod +x scripts/install_fonts.sh
+	./scripts/install_fonts.sh

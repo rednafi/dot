@@ -10,7 +10,8 @@ dnsutils \
 jq \
 nano \
 net-tools \
-telnet"
+telnet \
+code"
 
 
 # Log color.

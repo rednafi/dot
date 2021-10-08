@@ -77,9 +77,7 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
 * Install Jetbrains Mono font:
 
 ```
-$ curl -OJL https://download.jetbrains.com/fonts/JetBrainsMono-2.225.zip
-$ unzip ./JetBrainsMono-2.225.zip -d /usr/share/fonts
-$ fc-cache -f -v
+make install_fonts
 ```
 
 
