@@ -137,7 +137,7 @@ alias brpre="git branch --show-current | xargs -d '_' -n 1 2>/dev/null | head -n
 # Opens all the files changed in the current branch.
 alias last_changed="git diff-tree --no-commit-id --name-only -r HEAD | xargs code"
 
-## Unix magics
+## Unix magics.
 alias sudo="sudo "
 alias cp="cp -iv"
 alias mv="mv -iv"
@@ -146,16 +146,16 @@ alias hs="history|grep"
 alias ls="ls --group-directories-first --color=auto"
 alias ping="ping -c5"
 alias pkill="pkill -ecfi"
-alias update="sudo apt update && sudo apt upgrade && sudo apt autoclean && sudo apt autoremove"
+alias update="sudo apt update && \
+            sudo apt upgrade && sudo apt autoclean && \
+            sudo apt autoremove"
 alias www="python3 -m http.server 8001"
 
 # Languages.
 PATH=$PATH:/usr/local/go/bin
 
-# Work.
-alias dj_dendi="curl -s https://raw.githubusercontent.com/rednafi/dotfiles/master/scripts/dj_dendi.sh | bash"
 
-# Docker
+# Docker.
 start_redis() {
     echo "Spinning up a Redis container..."
     echo "================================"
@@ -172,30 +172,11 @@ stop_redis() {
     echo
 }
 
-start_rabbit() {
-    echo "Spinning up a Rabbitmq container..."
-    echo "==================================="
-    echo
-    stop_rabbit
-    command docker run -d \
-        --hostname my-rabbit \
-        --name dev-rabbit \
-        -p 15672:15672 \
-        -p 5672:5672 \
-        --memory 512m \
-        -e RABBITMQ_DEFAULT_USER=ubuntu \
-        -e RABBITMQ_DEFAULT_PASS=debian \
-        -e RABBITMQ_VM_MEMORY_HIGH_WATERMARK=0.8 \
-        rabbitmq:3-management
-    echo
-}
 
-stop_rabbit() {
-    echo
-    command docker stop dev-rabbit
-    command docker rm dev-rabbit
-    echo
-}
+alias docker_prune_containers="docker stop $(docker ps -aq) && docker rm $(docker ps -aq)"
+alias docker_prune_images="docker rmi --force $(docker images -q) || true"
+alias docker_quit="echo 'Killing Docker!' && killall Docker"
+alias docker_nuke="docker_prune_containers && docker_prune_images && docker system prune -af --volumes && docker_quit"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
