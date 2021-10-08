@@ -4,8 +4,6 @@
 
 <strong>>> <i>Dotfiles & Workspace Setup</i> <<</strong>
 
-&nbsp;
-
 </div>
 
 This repository reflects the setup of my primary work machine. I like to keep my work machine as stateless as possible; meaning I can completely wipe out the OS, start everything from scratch, and become productive within an hour at max. Here I've documented a few building blocks of my system, for example—dotfiles, configurations, scripts to run after a new OS installation, steps to carry out so that I don't find myself fumbling for missing pieces while I'm working on something, etc.
