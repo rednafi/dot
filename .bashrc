@@ -132,7 +132,7 @@ alias gp="git push origin HEAD"
 alias brclr="git branch | grep -Ev 'main|master|staging' | xargs -I{} git branch -D '{}'"
 
 # Splits the name of the current branch by '_' and picks the first token.
-alias brpre="git branch --show-current | xargs -d '_' -n 1 2>/dev/null | head -n 1"
+alias brpre="git branch --show-current | cut -d'_' -f1"
 
 # Opens all the files changed in the current branch.
 alias last_changed="git diff-tree --no-commit-id --name-only -r HEAD | xargs code"
@@ -161,7 +161,7 @@ start_redis() {
     echo "================================"
     echo
     stop_redis
-    command docker run --name dev-redis -d -h localhost -p 6379:6379 redis:alpine
+    command docker run --name dev-redis -d -h localhost -p 6379:6379 redis:6-alpine
     echo
 }
 
