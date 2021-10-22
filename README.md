@@ -1,11 +1,12 @@
-<div align="center">
-
-![logo](https://user-images.githubusercontent.com/30027932/136623844-b4a98af7-fad7-49af-acd5-75520f000f44.png)
-
+<h1>Fork Purger<img src='https://user-images.githubusercontent.com/30027932/138611579-9402e2c7-61c1-4cfa-a40f-665a73267533.png' align='right' width='128' height='128'></h1>
 
 <strong>>> <i>Dotfiles & Workspace Setup</i> <<</strong>
 
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![Gnome](https://img.shields.io/badge/Gnome-964B00?style=for-the-badge&logo=gnome&logoColor=white)
+![bash](https://img.shields.io/badge/Bash-008080?style=for-the-badge&logo=shell&logoColor=white)
 </div>
+
 
 This repository reflects the setup of my workspace. I like to keep my work machine as stateless as possible; meaning I can completely wipe out the OS, start over everything from scratch, and become productive within an hour at max. Here I've documented a few building blocks of my system, for example—dotfiles, configurations, scripts to run after a new OS installation, steps to carry out so that I don't find myself fumbling for missing pieces while I'm working on something, etc.
 
@@ -182,7 +183,7 @@ This happens due to an obscure setting in IBus. To solve this:
     # deb-src http://bd.archive.ubuntu.com/ubuntu/ focal-updates main restricted
     ```
 
-## 
+##
 
 <div align="center">
 <i> ✨ 🍰 ✨ </i>
