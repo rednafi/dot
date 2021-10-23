@@ -57,16 +57,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}\[\033[00;33m\]\u@\h\[\033[00m\]:\[\033[00;36m\]\w\[\033[00m\] \n$ "
+    PS1="${debian_chroot:+($debian_chroot)}\n\[\033[00;33m\]\u@\h\[\033[00m\]:\[\033[00;36m\]\w\[\033[00m\] \n$ "
 
 else
-    PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w \n$ "
+    PS1="${debian_chroot:+($debian_chroot)}\n\u@\h:\w \n$ "
 fi
-
+PROMPT_DIRTRIM=3
 
 # Save and reload the history after each command finishes. Also, add an empty line
 # after each command.
-PROMPT_COMMAND="printf '\n' && history -a && history -c && history -r; $PROMPT_COMMAND"
+PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 unset color_prompt force_color_prompt
 
@@ -150,6 +150,12 @@ alias update="sudo apt update && \
             sudo apt upgrade && sudo apt autoclean && \
             sudo apt autoremove"
 alias www="python3 -m http.server 8001"
+
+# remove duplicate history
+alias rm_dup_hist="nl ~/.bash_history | \
+sort -k 2  -k 1,1nr | uniq -f 1 | sort -n | cut -f 2 > unduped_history && \
+cp -f unduped_history ~/.bash_history && rm -rf unduped_history
+"
 
 # Languages.
 PATH=$PATH:/usr/local/go/bin
