@@ -153,9 +153,8 @@ alias www="python3 -m http.server 8001"
 
 # remove duplicate history
 alias rm_dup_hist="nl ~/.bash_history | \
-sort -k 2  -k 1,1nr | uniq -f 1 | sort -n | cut -f 2 > unduped_history && \
-cp -f unduped_history ~/.bash_history && rm -rf unduped_history
-"
+                sort -k 2 -k 1,1nr | uniq -f 1 | sort -n | cut -f 2 >\
+                /tmp/.bh && cp -f /tmp/.bh ~/.bash_history"
 
 # Languages.
 PATH=$PATH:/usr/local/go/bin
