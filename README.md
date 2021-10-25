@@ -1,4 +1,4 @@
-<h1>Fork Purger<img src='https://user-images.githubusercontent.com/30027932/138611579-9402e2c7-61c1-4cfa-a40f-665a73267533.png' align='right' width='128' height='128'></h1>
+<h1>Setup<img src='https://user-images.githubusercontent.com/30027932/138611579-9402e2c7-61c1-4cfa-a40f-665a73267533.png' align='right' width='128' height='128'></h1>
 
 <strong>>> <i>Dotfiles & Workspace Setup</i> <<</strong>
 
