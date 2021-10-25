@@ -57,16 +57,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1="${debian_chroot:+($debian_chroot)}\n\[\033[00;33m\]\u@\h\[\033[00m\]:\[\033[00;36m\]\w\[\033[00m\] \n$ "
+    PS1="${debian_chroot:+($debian_chroot)}\[\033[00;33m\]\u@\h\[\033[00m\]:\[\033[00;36m\]\w\[\033[00m\] \n$ "
 
 else
-    PS1="${debian_chroot:+($debian_chroot)}\n\u@\h:\w \n$ "
+    PS1="${debian_chroot:+($debian_chroot)}\u@\h:\w \n$ "
 fi
 PROMPT_DIRTRIM=3
 
 # Save and reload the history after each command finishes. Also, add an empty line
 # after each command.
-PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+PROMPT_COMMAND="printf '\n'&& history -a && history -c && history -r; $PROMPT_COMMAND"
 
 unset color_prompt force_color_prompt
 
