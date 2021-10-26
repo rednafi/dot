@@ -8,7 +8,7 @@
 </div>
 
 
-This repository reflects the setup of my workspace. I like to keep my work machine as stateless as possible; meaning I can completely wipe out the OS, start over everything from scratch, and become productive within an hour at max. Here I've documented a few building blocks of my system, for example—dotfiles, configurations, scripts to run after a new OS installation, steps to carry out so that I don't find myself fumbling for missing pieces while I'm working on something, etc.
+This repository reflects my workspace setup. I like to keep my work machine as stateless as possible; meaning I can completely wipe out the OS, start over everything from scratch, and become productive within an hour at max. Here I've documented a few building blocks of the orchestration, for example—dotfiles, configurations, scripts to run after a new OS installation, and steps to carry out so that I don't find myself fumbling for missing pieces while I'm working on something, etc.
 
 Also, I use this repository to keep my tool proliferation in check. As SWEs, we tend to keep adding a plethora of tools to our toolchain which often results in an irreproducible and unmaintainable workflow. Simplicity spawns sophistry.
 
@@ -32,7 +32,13 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
     * `.ssh` directory
     * `.bashrc` and `.bash_history`
     * `.ovpn` config
-    * `.env` files and credentials of different projects
+    * `.env` files and the credentials of disparate projects
+
+## OS Installation Steps
+
+* Taking snapshot backups of a work machine and going through a lengthy restoration process is usually not worth the hassle.
+
+* Download and install the third party drivers at the installation time. It usually prevents pesky display issues after the first bootup.
 
 ## OS Post Installation Steps
 
