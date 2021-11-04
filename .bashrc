@@ -129,7 +129,7 @@ fi
 alias gp="git push origin HEAD"
 
 # Clears all the branches other than the current branch, 'main', 'master' & 'staging'.
-alias brclr="git branch | grep -Ev 'main|master|staging' | xargs -I{} git branch -D '{}'"
+alias brclr="git branch | grep -vwE 'main|master|staging' | xargs git branch -D"
 
 # Splits the name of the current branch by '_' and picks the first token.
 alias brpre="git branch --show-current | cut -d'_' -f1"
