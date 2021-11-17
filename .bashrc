@@ -68,6 +68,7 @@ PROMPT_DIRTRIM=3
 # after each command.
 PROMPT_COMMAND="printf '\n'&& history -a && history -c && history -r; $PROMPT_COMMAND"
 
+
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir.
@@ -178,7 +179,8 @@ stop_redis() {
 }
 
 
-alias docker_prune_containers="docker stop $(docker ps -aq) && docker rm $(docker ps -aq)"
+alias docker_prune_containers="docker kill $(docker ps -aq) 2> /dev/null && \
+                            docker rm $(docker ps -aq) 2> /dev/null"
 alias docker_prune_images="docker rmi --force $(docker images -q) || true"
 alias docker_quit="echo 'Killing Docker!' && killall Docker"
 alias docker_nuke="docker_prune_containers && docker_prune_images && docker system prune -af --volumes && docker_quit"
