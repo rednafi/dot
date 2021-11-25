@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Move config file to the proper destination.
+
+# Bash strict mode.
+set -euo pipefail
+
+
+# Bashrc
+
+cp -f 

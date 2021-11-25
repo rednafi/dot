@@ -6,21 +6,21 @@ help: ## Show this help message.
 .PHONY: install_go
 install_go:
 	chmod +x scripts/install_go.sh
-	./scripts/install_go.sh
+	./scripts/install_go
 
 
 .PHONY: install_python
 install_python:
 	chmod +x scripts/install_python.sh
-	./scripts/install_python.sh
+	./scripts/install_python
 
 
 .PHONY: install_tools
 install_tools:
 	chmod +x scripts/install_tools.sh
-	./scripts/install_tools.sh
+	./scripts/install_tools
 
 .PHONY: install_fonts
 install_fonts:
 	chmod +x scripts/install_fonts.sh
-	./scripts/install_fonts.sh
+	./scripts/install_fonts

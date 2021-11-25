@@ -1,0 +1,18 @@
+# This file should live in the home directory '~/.gitconfig'.
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[user]
+	email = redowan.nafi@gmail.com
+	name = redowan
+
+[core]
+	editor = code --wait
+
+[color]
+	ui = true
+
