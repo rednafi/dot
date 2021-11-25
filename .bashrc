@@ -147,15 +147,20 @@ alias hs="history|grep"
 alias ls="ls --group-directories-first --color=auto"
 alias ping="ping -c5"
 alias pkill="pkill -ecfi"
-alias update="sudo apt update && \
-            sudo apt upgrade && sudo apt autoclean && \
-            sudo apt autoremove"
+alias update="sudo apt update \
+                && sudo apt upgrade \
+                && sudo apt autoclean \
+                && sudo apt autoremove"
+
 alias www="python3 -m http.server 8001"
 
-# remove duplicate history
-alias rm_dup_hist="nl ~/.bash_history | \
-                sort -k 2 -k 1,1nr | uniq -f 1 | sort -n | cut -f 2 >\
-                /tmp/.bh && cp -f /tmp/.bh ~/.bash_history"
+# Remove duplicate history.
+alias rm_dup_hist="nl ~/.bash_history \
+                    | sort -k 2 -k 1,1nr \
+                    | uniq -f 1 \
+                    | sort -n \
+                    | cut -f 2 > /tmp/.bh \
+                    && cp -f /tmp/.bh ~/.bash_history"
 
 # Languages.
 PATH=$PATH:/usr/local/go/bin
@@ -179,11 +184,13 @@ stop_redis() {
 }
 
 
-alias docker_prune_containers="docker kill $(docker ps -aq) 2> /dev/null && \
-                            docker rm $(docker ps -aq) 2> /dev/null"
-alias docker_prune_images="docker rmi --force $(docker images -q) || true"
-alias docker_quit="echo 'Killing Docker!' && killall Docker"
-alias docker_nuke="docker_prune_containers && docker_prune_images && docker system prune -af --volumes && docker_quit"
+alias docker_prune_containers='docker stop $(docker ps -aq) 2> /dev/null \
+                                && docker rm $(docker ps -aq) 2> /dev/null'
+
+alias docker_prune_images='docker rmi --force $(docker images -q) || true'
+alias docker_nuke="docker_prune_containers \
+                    && docker_prune_images \
+                    && docker system prune -af --volumes"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
