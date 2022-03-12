@@ -12,11 +12,11 @@ This repository reflects my workspace setup. I like to keep my work machine as s
 
 Also, I use this repository to keep my tool proliferation in check. As SWEs, we tend to keep adding a plethora of tools to our toolchain which often results in an irreproducible and unmaintainable workflow. Simplicity spawns sophistry.
 
-## Work Machine
+## Work machine
 
 Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DRAM
 
-## OS Settings
+## OS settings
 
 * OS                    : Ubuntu 20.04 LTS
 * Terminal              : Gnome terminal running plain Bash
@@ -25,7 +25,7 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
 * Mono Font             : Jetbrains Mono Regular
 * Terminal font size    : 18
 
-## OS Pre Installation Steps
+## OS pre installation steps
 
 * Take a backup of the following entities and put them in a folder called `backup`:
 
@@ -34,15 +34,15 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
     * `.ovpn` config
     * `.env` files and the credentials of disparate projects
 
-## OS Installation Steps
+## OS installation steps
 
 * Taking snapshot backups of a work machine and going through a lengthy restoration process is usually not worth the hassle.
 
 * Download and install the third party drivers at the installation time. It usually prevents pesky display issues after the first bootup.
 
-## OS Post Installation Steps
+## OS post installation steps
 
-### Create Directory Layout
+### Create directory layout
 
 * Work and personal project directory layout should always have the following structure:
 
@@ -91,7 +91,7 @@ mkdir -p ~/canvas/<company_name> && mkdir -p ~/canvas/personal
     ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
     ```
 
-### Restore Bashrc & Bash History
+### Restore .bashrc & bash_history
 
 * Change shell to Bash if set something else:
     ```
@@ -106,7 +106,7 @@ mkdir -p ~/canvas/<company_name> && mkdir -p ~/canvas/personal
     cp backup/.bash_history ~/.bash_history
     ```
 
-### Install Tools
+### Install tools
 
 Although all of these tools are download via scripts, they still need some manual supervision. That's why it's better to run them one by one instead of in a single go.
 
@@ -144,9 +144,9 @@ make install_go
 make install_tools
 ```
 
-## Issues & Fixes
+## Issues & fixes
 
-### Fix Ctrl + Shift + E Hijacking in VSCode
+### Fix 'ctrl + shift + e' hijacking in VSCode
 
 This happens due to an obscure setting in IBus. To solve this:
 
@@ -156,7 +156,7 @@ This happens due to an obscure setting in IBus. To solve this:
     ```
 * Go to the `Emoji` tab and delete the shortcut for emoji annotation.
 
-### Fix Inconsistent Gnome Settings
+### Fix inconsistent Gnome settings
 
 * Execute this to hide the fat and ugly Gnome title bar.
 
@@ -171,7 +171,7 @@ This happens due to an obscure setting in IBus. To solve this:
     gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
     ```
 
-### Fix Ubuntu Mirror Issues
+### Fix Ubuntu mirror issues
 
 * Select mirror server from [here](https://launchpad.net/ubuntu/+archivemirrors).
 
