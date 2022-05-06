@@ -20,7 +20,7 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
 
 * OS                    : Ubuntu 22.04 LTS
 * Terminal              : Gnome terminal running plain Bash
-* System Zoom           : 1.20, change via `gnome-tweaks`
+* System Zoom           : 1.25, change via `gnome-tweaks`
 * System Font           : FreeSans Regular
 * Mono Font             : Jetbrains Mono Regular
 * Terminal font size    : 17
@@ -155,7 +155,14 @@ make install_tools
     gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
     ```
 
+* Install and turn on [pixel-saver](https://extensions.gnome.org/extension/723/pixel-saver/) Gnome extension to increase screen real estate.
 
+* Disable the dock permanently.
+
+    ```
+    gnome-extensions disable ubuntu-dock@ubuntu.com
+
+    ```
 
 <div align="center">
 <i> ✨ 🍰 ✨ </i>
