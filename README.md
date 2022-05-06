@@ -18,12 +18,12 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
 
 ## OS settings
 
-* OS                    : Ubuntu 20.04 LTS
+* OS                    : Ubuntu 22.04 LTS
 * Terminal              : Gnome terminal running plain Bash
-* System Zoom           : 1.25, change via `gnome-tweaks`
+* System Zoom           : 1.20, change via `gnome-tweaks`
 * System Font           : FreeSans Regular
 * Mono Font             : Jetbrains Mono Regular
-* Terminal font size    : 18
+* Terminal font size    : 17
 
 ## OS pre installation steps
 
@@ -131,30 +131,21 @@ make install_go
 * Install misc tools. This should install:
     * code
     * curl
-    * dbeaver
     * dnsutils
-    * docker
     * htop
     * jq
     * nano
     * net-tools
     * postman
     * telnet
+    * vlc player
+    * qbittorrent
+
 ```
 make install_tools
 ```
 
 ## Issues & fixes
-
-### Fix 'ctrl + shift + e' hijacking in VSCode
-
-This happens due to an obscure setting in IBus. To solve this:
-
-* Run:
-    ```
-    ibus-setup
-    ```
-* Go to the `Emoji` tab and delete the shortcut for emoji annotation.
 
 ### Fix inconsistent Gnome settings
 
@@ -164,32 +155,7 @@ This happens due to an obscure setting in IBus. To solve this:
     gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
     ```
 
-* `Ctrl+Tab` & `Ctrl+Shift+Tab` to Switch Between Gnome Terminal Tabs.
 
-    ```
-    gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab' &&
-    gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
-    ```
-
-### Fix Ubuntu mirror issues
-
-* Select mirror server from [here](https://launchpad.net/ubuntu/+archivemirrors).
-
-* Add mirror server to `/etc/apt/sources.list` and reboot. If the new mirror server isn't picked up by the OS, try selectively commenting out other servers in the file. Here's a sample `sources.list` file:
-
-    ```
-    # See http://help.ubuntu.com/community/UpgradeNotes for how to upgrade to
-    # newer versions of the distribution.
-    deb http://bd.archive.ubuntu.com/ubuntu/ focal main restricted
-    # deb-src http://bd.archive.ubuntu.com/ubuntu/ focal main restricted
-
-    ## Major bug fix updates produced after the final release of the
-    ## distribution.
-    deb http://bd.archive.ubuntu.com/ubuntu/ focal-updates main restricted
-    # deb-src http://bd.archive.ubuntu.com/ubuntu/ focal-updates main restricted
-    ```
-
-##
 
 <div align="center">
 <i> ✨ 🍰 ✨ </i>

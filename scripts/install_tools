@@ -13,11 +13,11 @@ net-tools \
 telnet \
 htop \
 code \
-dbeaver-ce
+vlc\
+qbittorrent\
 "
 
-snap_tools="postman \
-docker"
+snap_tools="postman"
 
 # Log color.
 green="\033[0;32m"
@@ -43,6 +43,3 @@ sudo adduser $USER docker
 newgrp docker
 sudo snap disable docker
 sudo snap enable docker
-
-
-
