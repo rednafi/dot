@@ -90,19 +90,23 @@ regenerate the public ssh key from the private key.
     ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
     ```
 
-### Restore .bashrc & bash_history
+### Restore .zshrc & zsh_history
 
-* Change shell to Bash if set something else:
+* Install Zsh if it's not already installed.
     ```
-    sudo chsh -s $(which bash)
+    sudo apt install zsh -y
     ```
-* Overwrite `.bashrc`.
+* Change shell to Zsh:
     ```
-    cp backup/.bashrc ~/.bashrc
+    sudo chsh -s $(command -v zsh)
     ```
-* Overwrite `.bash_history`.
+* Overwrite `.zshrc`.
     ```
-    cp backup/.bash_history ~/.bash_history
+    cp backup/.zshrc ~/.zshrc
+    ```
+* Overwrite `.zsh_history`.
+    ```
+    cp backup/.zsh_history ~/.zsh_history
     ```
 
 ### Install tools
