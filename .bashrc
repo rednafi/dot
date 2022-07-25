@@ -172,7 +172,7 @@ start_redis() {
     echo "================================"
     echo
     stop_redis
-    command docker run --name dev-redis -d -h localhost -p 6379:6379 redis:6-alpine
+    command docker run --name dev-redis -d -h localhost -p 6379:6379 redis:7-alpine
     echo
 }
 
@@ -192,6 +192,18 @@ alias docker_nuke="docker_prune_containers \
                     && docker_prune_images \
                     && docker system prune -af --volumes"
 
+# NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# Terraform
+complete -C /usr/bin/terraform terraform
+
+# Rust cargo
+. "$HOME/.cargo/env"
+
+# Fly.io
+export FLYCTL_INSTALL="/home/rednafi/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
