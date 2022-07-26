@@ -66,8 +66,8 @@ PROMPT_DIRTRIM=3
 
 # Save and reload the history after each command finishes. Also, add an empty line
 # after each command.
-PROMPT_COMMAND="printf '\n'&& history -a && history -c && history -r; $PROMPT_COMMAND"
-
+PROMPT_COMMAND="printf '\n' \
+            && history -a && history -c && history -r; $PROMPT_COMMAND"
 
 unset color_prompt force_color_prompt
 
@@ -82,7 +82,9 @@ esac
 
 # Add an "alert" alias for long running commands.  Use like so:
 #  sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias alert='notify-send \
+    --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" \
+    "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like—
@@ -130,7 +132,9 @@ fi
 alias gp="git push origin HEAD"
 
 # Clears all the branches other than the current branch, 'main', 'master' & 'staging'.
-alias brclr="git branch | grep -vwE 'main|master|staging|development' | xargs git branch -D"
+alias brclr="git branch \
+            | grep -vwE 'main|master|staging|development' \
+            | xargs git branch -D"
 
 # Splits the name of the current branch by '_' and picks the first token.
 alias brpre="git branch --show-current | cut -d'_' -f1"
@@ -185,12 +189,12 @@ stop_redis() {
 
 
 alias docker_prune_containers='docker stop $(docker ps -aq) 2> /dev/null \
-                                && docker rm $(docker ps -aq) 2> /dev/null'
+                            && docker rm $(docker ps -aq) 2> /dev/null'
 
 alias docker_prune_images='docker rmi --force $(docker images -q) || true'
 alias docker_nuke="docker_prune_containers \
-                    && docker_prune_images \
-                    && docker system prune -af --volumes"
+                && docker_prune_images \
+                && docker system prune -af --volumes"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
