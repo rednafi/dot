@@ -37,7 +37,8 @@ for plugin in $github_plugins; do
     # Clone if not exist.
     if [[ ! -d $HOME/.zsh_plugins/$plugin ]]; then
         mkdir -p $HOME/.zsh_plugins/${plugin%/*}
-        git clone --depth 1 --recursive https://github.com/$plugin.git $HOME/.zsh_plugins/$plugin
+        git clone --depth 1 \
+            --recursive https://github.com/$plugin.git $HOME/.zsh_plugins/$plugin
     fi
 
     # Load the plugin.
