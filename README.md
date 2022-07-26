@@ -7,10 +7,12 @@
 ![bash](https://img.shields.io/badge/Bash-008080?style=for-the-badge&logo=shell&logoColor=white)
 </div>
 
-
-This repository reflects my workspace setup. I like to keep my work machine as stateless as possible; meaning I can completely wipe out the OS, start over everything from scratch, and become productive within an hour at max. Here I've documented a few building blocks of the orchestration, for example—dotfiles, configurations, scripts to run after a new OS installation, and steps to carry out so that I don't find myself fumbling for missing pieces while I'm working on something, etc.
-
-Also, I use this repository to keep my tool proliferation in check. As SWEs, we tend to keep adding a plethora of tools to our toolchain which often results in an irreproducible and unmaintainable workflow. Simplicity spawns sophistry.
+This repository reflects my workspace setup. I like to keep my work machine as stateless
+as possible; meaning I can completely wipe out the OS, start over everything from
+scratch, and become productive within an hour at max. Here I've documented a few building
+blocks of the orchestration, for example—dotfiles, configurations, scripts to run after a
+new OS installation, and steps to carry out so that I don't find myself fumbling for
+missing pieces while I'm working on something, etc.
 
 ## Work machine
 
@@ -19,33 +21,32 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
 ## OS settings
 
 * OS                    : Ubuntu 22.04 LTS
-* Terminal              : Gnome terminal running plain Bash
-* System Zoom           : 1.25, change via `gnome-tweaks`
+* Terminal              : Gnome terminal.
+* Shell                 : Zsh with a simple 5 lines custom plugin manager.
 * System Font           : FreeSans Regular
 * Mono Font             : Jetbrains Mono Regular
-* Terminal font size    : 17
 
 ## OS pre installation steps
 
 * Take a backup of the following entities and put them in a folder called `backup`:
 
     * `.ssh` directory
-    * `.bashrc` and `.bash_history`
+    * `.zshrc`, `.zsh_history`, `.zprofile`
     * `.ovpn` config
     * `.env` files and the credentials of disparate projects
 
 ## OS installation steps
 
-* Taking snapshot backups of a work machine and going through a lengthy restoration process is usually not worth the hassle.
-
-* Download and install the third party drivers at the installation time. It usually prevents pesky display issues after the first bootup.
+* Taking snapshot backups of a work machine and going through a lengthy restoration
+process is usually not worth the hassle.
+* Download and install the third party drivers at the installation time. It usually
+prevents pesky display issues after the first bootup.
 
 ## OS post installation steps
 
 ### Create directory layout
 
 * Work and personal project directory layout should always have the following structure:
-
     ```
     ~/canvas
     ├── company_a
@@ -58,34 +59,30 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
         ├── project_1
         └── project_2
     ```
-
 * To create the above project directory layout, run:
 
-
-```
-mkdir -p ~/canvas/<company_name> && mkdir -p ~/canvas/personal
-```
-
-* Before starting to restore things, put the `backup` folder temporarily in `~/canvas/personal/` directory.
+    ```
+    mkdir -p ~/canvas/<company_name> && mkdir -p ~/canvas/personal
+    ```
+* Before starting to restore things, put the `backup` folder temporarily in `~/canvas/
+personal/` directory.
 
 ### Restore SSH
 
 * Copy the backup ssh keys into the `~/.ssh` folder:
-
     ```
     cp -r backup/.ssh/* ~/.ssh
     ```
-
 * Change folder permission:
-
     ```
     sudo chown -R $USER:$USER ~/.ssh
     chmod -R 700 ~/.ssh
     ```
+* If you've changed the username from `rednafi` to anything else, in that case, you've to
+regenerate the public ssh key from the private key.
 
-* If you've changed the username from `rednafi` to anything else, in that case, you've to regenerate the public ssh key from the private key.
-
-    First copy the `id_rsa` private key to the `~/.ssh` folder and change the permission via the commands stated above. Then run:
+    First copy the `id_rsa` private key to the `~/.ssh` folder and change the permission
+    via the commands stated above. Then run:
 
     ```
     ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
@@ -108,26 +105,24 @@ mkdir -p ~/canvas/<company_name> && mkdir -p ~/canvas/personal
 
 ### Install tools
 
-Although all of these tools are download via scripts, they still need some manual supervision. That's why it's better to run them one by one instead of in a single go.
+Although all of these tools are download via scripts, they still need some manual
+supervision. That's why it's better to run them one by one instead of in a single go.
 
 * Install Jetbrains Mono font:
 
 ```
 make install_fonts
 ```
-
 * Install Python:
 
 ```
 make install_python
 ```
-
 * Install Golang:
 
 ```
 make install_go
 ```
-
 * Install misc tools. This should install:
     * code
     * curl
@@ -154,15 +149,15 @@ make install_tools
     ```
     gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
     ```
-
-* Install and turn on [pixel-saver](https://extensions.gnome.org/extension/723/pixel-saver/) Gnome extension to increase screen real estate.
-
+* Install and turn on [pixel-saver][1] Gnome extension to increase screen real estate.
 * Disable the dock permanently.
 
     ```
     gnome-extensions disable ubuntu-dock@ubuntu.com
 
     ```
+    
+[1]: https://extensions.gnome.org/extension/723/pixel-saver/
 
 <div align="center">
 <i> ✨ 🍰 ✨ </i>
