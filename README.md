@@ -1,4 +1,6 @@
-<h1>Setup<img src='https://user-images.githubusercontent.com/30027932/138611579-9402e2c7-61c1-4cfa-a40f-665a73267533.png' align='right' width='128' height='128'></h1>
+<h1>Setup<img
+src='https://user-images.githubusercontent.com/30027932/138611579-9402e2c7-61c1-4cfa-a40f-665a73267533.png'
+align='right' width='128' height='128'></h1>
 
 <strong>>> <i>Dotfiles & Workspace Setup</i> <<</strong>
 
@@ -156,7 +158,7 @@ make install_tools
     gnome-extensions disable ubuntu-dock@ubuntu.com
 
     ```
-    
+
 [1]: https://extensions.gnome.org/extension/723/pixel-saver/
 
 <div align="center">
