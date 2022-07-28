@@ -31,7 +31,6 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
 ## OS pre installation steps
 
 * Take a backup of the following entities and put them in a folder called `backup`:
-
     * `.ssh` directory
     * `.zshrc`, `.zsh_history`, `.zprofile`
     * `.ovpn` config
@@ -49,6 +48,7 @@ prevents pesky display issues after the first bootup.
 ### Create directory layout
 
 * Work and personal project directory layout should always have the following structure:
+
     ```
     ~/canvas
     ├── company_a
@@ -72,10 +72,12 @@ personal/` directory.
 ### Restore SSH
 
 * Copy the backup ssh keys into the `~/.ssh` folder:
+
     ```
     cp -r backup/.ssh/* ~/.ssh
     ```
 * Change folder permission:
+
     ```
     sudo chown -R $USER:$USER ~/.ssh
     chmod -R 700 ~/.ssh
@@ -93,18 +95,22 @@ regenerate the public ssh key from the private key.
 ### Restore .zshrc & zsh_history
 
 * Install Zsh if it's not already installed.
+
     ```
     sudo apt install zsh -y
     ```
 * Change shell to Zsh:
+
     ```
     sudo chsh -s $(command -v zsh)
     ```
 * Overwrite `.zshrc`.
+
     ```
     cp backup/.zshrc ~/.zshrc
     ```
 * Overwrite `.zsh_history`.
+
     ```
     cp backup/.zsh_history ~/.zsh_history
     ```
