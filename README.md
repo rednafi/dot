@@ -94,7 +94,7 @@ regenerate the public ssh key from the private key.
 
 ### Restore .zshrc & zsh_history
 
-* Install Zsh if it's not already installed.
+* Install Zsh if it's not already installed:
 
     ```
     sudo apt install zsh -y
@@ -104,12 +104,12 @@ regenerate the public ssh key from the private key.
     ```
     sudo chsh -s $(command -v zsh)
     ```
-* Overwrite `.zshrc`.
+* Overwrite `.zshrc`:
 
     ```
     cp backup/.zshrc ~/.zshrc
     ```
-* Overwrite `.zsh_history`.
+* Overwrite `.zsh_history`:
 
     ```
     cp backup/.zsh_history ~/.zsh_history
