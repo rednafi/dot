@@ -166,7 +166,6 @@ make install_tools
 
     ```
     gnome-extensions disable ubuntu-dock@ubuntu.com
-
     ```
 
 [1]: https://extensions.gnome.org/extension/723/pixel-saver/
