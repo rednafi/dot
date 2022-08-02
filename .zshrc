@@ -191,3 +191,7 @@ PATH=$PATH:/usr/local/go/bin
 # Fly.io
 export FLYCTL_INSTALL="/home/rednafi/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# Fzf
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
