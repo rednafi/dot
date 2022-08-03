@@ -3,6 +3,11 @@
 ##########################################
 
 bindkey -e
+
+# Make the ctrl + arrow keys work like bash.
+bindkey '^[[1;5C' emacs-forward-word
+bindkey '^[[1;5D' emacs-backward-word
+
 export CLICOLOR=1
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
