@@ -29,7 +29,7 @@ github_plugins=(
   zsh-users/zsh-history-substring-search
 
   # Must be placed in the last position.
-  zdharma/fast-syntax-highlighting
+  zsh-users/zsh-syntax-highlighting
 )
 
 # Install plugins.
@@ -71,17 +71,25 @@ export SAVEHIST=100000
 # History file.
 export HISTFILE=~/.zsh_history
 
-# Append into history file
-setopt INC_APPEND_HISTORY
-
 # Save only one command if 2 common are same and consistent.
 setopt HIST_IGNORE_DUPS
+
+# Ignore space.
+setopt HIST_IGNORE_SPACE
 
 # Add timestamp for each entry.
 setopt EXTENDED_HISTORY
 
-# Reloads the history whenever you use it.
+# Reloads the history whenever you use it. Turn of INC_APPEND_HISTORY when this is
+# turned on.
 setopt SHARE_HISTORY
+
+# Start expiring duplicate histories first.
+setopt HIST_EXPIRE_DUPS_FIRST
+
+# Whenever the user enters a line with history expansion, don’t execute the line
+#directly; instead, perform history expansion and reload the line into the editing buffer.
+setopt HIST_VERIFY
 
 ##########################################
 # Aliases
