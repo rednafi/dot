@@ -137,7 +137,6 @@ alias sudo="sudo "
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"
-alias hs="history|grep"
 alias ls="ls --group-directories-first --color=auto"
 alias ping="ping -c5"
 alias pkill="pkill -ecfi"
@@ -174,9 +173,21 @@ alias docker_nuke="docker_prune_containers \
                 && docker_prune_images \
                 && docker system prune -af --volumes"
 
+
+# Fzf
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+
+alias dsh='docker exec -it $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  ) sh'
+alias dbash='docker exec -it $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  ) bash'
+alias drm='docker rm $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  )'
+alias drma='docker rm $(  docker ps -a | fzf | awk '"'"'{print $1;}'"'"'  )'
+
+
 # NVM is slow, this is a custom solution
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use # This loads nvm
+
 alias node='unalias node ; unalias npm ; nvm use default ; node $@'
 alias npm='unalias node ; unalias npm ; nvm use default ; npm $@'
 
@@ -191,7 +202,3 @@ PATH=$PATH:/usr/local/go/bin
 # Fly.io
 export FLYCTL_INSTALL="/home/rednafi/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
-# Fzf
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
