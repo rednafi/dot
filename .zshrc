@@ -61,7 +61,7 @@ done
 
 precmd() { print }
 PS1="%{%F{yellow}%}%n@%{%f%}%{%F{yellow}%}%m:%{%F{cyan}%}% %(5~|%-1~/.../%3~|%4~)
-%{%f%}$ %"
+%{%f%}$ "
 
 ##########################################
 # History
@@ -179,8 +179,8 @@ source /usr/share/doc/fzf/examples/completion.zsh
 
 alias dsh='docker exec -it $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  ) sh'
 alias dbash='docker exec -it $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  ) bash'
-alias drm='docker rm $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  )'
-alias drma='docker rm $(  docker ps -a | fzf | awk '"'"'{print $1;}'"'"'  )'
+alias drm='docker rm -f $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  )'
+alias drma='docker rm -f $(  docker ps -a | fzf | awk '"'"'{print $1;}'"'"'  )'
 
 
 # NVM is slow, this is a custom solution
