@@ -118,9 +118,6 @@ alias alert='notify-send \
     "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Git.
-# Git push origin.
-alias gp="git push origin HEAD"
-
 # Clears all the branches other than the current branch, 'main', 'master' & 'staging'.
 alias brclr="git branch \
             | grep -vwE 'main|master|staging|development' \
