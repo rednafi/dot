@@ -141,7 +141,7 @@ alias update="sudo apt update \
                 && sudo apt upgrade \
                 && sudo apt autoclean \
                 && sudo apt autoremove"
-alias www="python3 -m http.server 8001"
+alias www="python3 -m http.server 6969"
 
 
 # Docker
