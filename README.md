@@ -1,7 +1,7 @@
 <div align="center">
 
 <h1>Setup</h1>
-<strong>>> <i>Dotfiles & Workspace Setup</i> <<</strong><br><br>
+<strong>>> <i>Dotfiles & workspace setup</i> <<</strong><br><br>
 
 ![.ENV][1]
 ![macos-logo][2]
