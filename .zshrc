@@ -140,10 +140,6 @@ alias docker_nuke="docker_prune_containers \
                 && docker_prune_images \
                 && docker system prune -af --volumes"
 
-# Workplace (Dendi).
-alias dendi-restart="docker compose restart \
-    lis_gunicorn lis_daphne caddy worker redis redisinsight dnsmasq"
-
 ##########################################
 # Apps
 ##########################################
