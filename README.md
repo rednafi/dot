@@ -169,7 +169,7 @@ Let's update that first:
     ```
 
 * Similarly, install NodeJS and Golang by following the instructions [here][4]. Also,
-checkout the `./.tool-versions` config file to see how `asdf` managed CLIs are
+checkout the [`tool-versions`][5] config file to see how `asdf` managed CLIs are
 configured.
 
 <div align="center">
@@ -180,3 +180,4 @@ configured.
 [2]: https://shields.io/badge/MacOS--1cf?logo=Apple&style=for-the-badge
 [3]: https://img.shields.io/static/v1?style=for-the-badge&message=brew&color=555555&logo=Homebrew&logoColor=ECD53F&label=
 [4]: https://asdf-vm.com/guide/getting-started.html#install-the-plugin
+[5]: ./.tool-versions
