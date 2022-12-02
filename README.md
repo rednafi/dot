@@ -1,14 +1,13 @@
-<h1>Setup<img
-src='https://user-images.githubusercontent.com/30027932/138611579-9402e2c7-61c1-4cfa-a40f-665a73267533.png'
-align='right' width='128' height='128'></h1>
+<div align="center">
 
-<strong>>> <i>Dotfiles & Workspace Setup</i> <<</strong>
+<h1>Setup</h1>
+<strong>>> <i>Dotfiles & Workspace Setup</i> <<</strong><br><br>
 
-
-![.ENV][2]
-![macos-logo][1]
-
+![.ENV][1]
+![macos-logo][2]
+![homebrew][3]
 </div>
+
 
 This repository reflects my workspace setup. I like to keep my work machine as stateless
 as possible; meaning I can completely wipe out the OS, start over everything from
@@ -177,7 +176,7 @@ configured.
 <i> ✨ 🍰 ✨ </i>
 </div>
 
-[1]: https://shields.io/badge/MacOS--9cf?logo=Apple&style=for-the-badge
-[2]: https://img.shields.io/static/v1?style=for-the-badge&message=.ENV&color=555555&logo=.ENV&logoColor=ECD53F&label=
-[3]: https://img.shields.io/static/v1?style=for-the-badge&message=Apple&color=000000&logo=Apple&logoColor=FFFFFF&label=
+[1]: https://img.shields.io/static/v1?style=for-the-badge&message=ENV&color=555555&logo=.ENV&logoColor=ECD53F&label=
+[2]: https://shields.io/badge/MacOS--1cf?logo=Apple&style=for-the-badge
+[3]: https://img.shields.io/static/v1?style=for-the-badge&message=brew&color=555555&logo=Homebrew&logoColor=ECD53F&label=
 [4]: https://asdf-vm.com/guide/getting-started.html#install-the-plugin
