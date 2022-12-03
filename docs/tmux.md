@@ -1,7 +1,7 @@
 # Tmux
 
 ```
-sudo apt install tmux
+brew install tmux
 ```
 prefix := `ctrl + b (release)`
 
