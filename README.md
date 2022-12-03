@@ -170,7 +170,8 @@ Let's update that first:
     ```
 
 * Similarly, install NodeJS and Golang by following the instructions [here][4]. Also,
-checkout the `./.tool-versions` file in this repo.
+checkout the `./.tool-versions` config file to see how `asdf` managed CLIs are
+configured.
 
 <div align="center">
 <i> ✨ 🍰 ✨ </i>
