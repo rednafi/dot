@@ -133,42 +133,41 @@ supervision. That's why it's better to run them one by one instead of in a singl
 
 * Install Homebrew:
 
-```
-/bin/bash -c \
-    "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
+    ```
+    /bin/bash -c \
+        "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
 
 * By default, macOS is shipped with a really old version of Bash for licensing issues.
 Let's update that first:
 
-```
-brew install bash
-```
-
+    ```
+    brew install bash
+    ```
 * Install Python. Python is installed with `asdf` CLI version manager. First, install
 `asdf`:
 
-```
-brew install asdf
-```
+    ```
+    brew install asdf
+    ```
 
-Add `asdf` Python plugin:
+    Add `asdf` Python plugin:
 
-```
-asdf plugin-add python
-```
+    ```
+    asdf plugin-add python
+    ```
 
-Install your preferred version of Python:
+    Install your preferred version of Python:
 
-```
-asdf install python 3.11.1
-```
+    ```
+    asdf install python 3.11.1
+    ```
 
-Set up global Python version:
+    Set up global Python version:
 
-```
-asdf global Python 3.11.1
-```
+    ```
+    asdf global Python 3.11.1
+    ```
 
 * Similarly, install NodeJS and Golang by following the instructions [here][4]. Also,
 checkout the `./.tool-versions` file in this repo.
