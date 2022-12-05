@@ -4,29 +4,47 @@ align='right' width='128' height='128'></h1>
 
 <strong>>> <i>Dotfiles & Workspace Setup</i> <<</strong>
 
-![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
-![Gnome](https://img.shields.io/badge/Gnome-964B00?style=for-the-badge&logo=gnome&logoColor=white)
-![bash](https://img.shields.io/badge/Bash-008080?style=for-the-badge&logo=shell&logoColor=white)
+
+![.ENV][2]
+![macos-logo][1]
+
 </div>
 
 This repository reflects my workspace setup. I like to keep my work machine as stateless
 as possible; meaning I can completely wipe out the OS, start over everything from
-scratch, and become productive within an hour at max. Here I've documented a few building
-blocks of the orchestration, for example—dotfiles, configurations, scripts to run after a
-new OS installation, and steps to carry out so that I don't find myself fumbling for
-missing pieces while I'm working on something, etc.
+scratch, and become productive within an hour at max. Here I've documented a few
+building blocks of the orchestration, for example—dotfiles, configurations, scripts to
+run after a new OS installation, and steps to carry out so that I don't find myself
+fumbling for missing pieces while I'm working on something, etc.
 
 ## Work machine
 
-Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DRAM
+```
+                    'c.          rednafi@mbp.local
+                 ,xNMM.          -----------------
+               .OMMMMo           OS: macOS 13.0.1 22A400 arm64
+               OMMM0,            Host: MacBookPro18,1
+     .;loddo:' loolloddol;.      Kernel: 22.1.0
+   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 2 days, 8 hours, 6 mins
+ .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 28 (brew)
+ XMMMMMMMMMMMMMMMMMMMMMMMX.      Shell: zsh 5.8.1
+;MMMMMMMMMMMMMMMMMMMMMMMM:       Resolution: 1496x967
+:MMMMMMMMMMMMMMMMMMMMMMMM:       DE: Aqua
+.MMMMMMMMMMMMMMMMMMMMMMMMX.      WM: Rectangle
+ kMMMMMMMMMMMMMMMMMMMMMMMMWd.    Terminal: Apple_Terminal
+ .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   Terminal Font: SFMono-Regular
+  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   CPU: Apple M1 Pro
+    kMMMMMMMMMMMMMMMMMMMMMMd     GPU: Apple M1 Pro
+     ;KMMMMMMMWXXWMMMMMMMk.      Memory: 3865MiB / 32768MiB
+       .cooc,.    .,coo:.
+```
 
 ## OS settings
 
-* OS                    : Ubuntu 22.04 LTS
+* OS                    : MacOS Ventura
 * Terminal              : Gnome terminal.
 * Shell                 : Zsh with a simple 5 lines custom plugin manager.
-* System Font           : FreeSans Regular
-* Mono Font             : Jetbrains Mono Regular
+* Mono Font             : SF Mono
 
 ## OS pre installation steps
 
@@ -36,13 +54,6 @@ Dell XPS 2020 -> 15" 1080p | 8c 16T 3-5ghz CPU | 1TB NVME SSD | 32 GB 3000MHz DR
     * `.ovpn` config
     * `.env` files and the credentials of disparate projects
 
-## OS installation steps
-
-* Taking snapshot backups of a work machine and going through a lengthy restoration
-process is usually not worth the hassle.
-* Download and install the third party drivers at the installation time. It usually
-prevents pesky display issues after the first bootup.
-
 ## OS post installation steps
 
 ### Create directory layout
@@ -50,7 +61,7 @@ prevents pesky display issues after the first bootup.
 * Work and personal project directory layout should always have the following structure:
 
     ```
-    ~/canvas
+    ~/Canvas
     ├── company_a
     │   ├── project_1
     │   └── project_2
@@ -64,10 +75,10 @@ prevents pesky display issues after the first bootup.
 * To create the above project directory layout, run:
 
     ```
-    mkdir -p ~/canvas/<company_name> && mkdir -p ~/canvas/personal
+    mkdir -p ~/Canvas/<company_name> && mkdir -p ~/Canvas/personal
     ```
-* Before starting to restore things, put the `backup` folder temporarily in `~/canvas/
-personal/` directory.
+* Before starting to restore things, put the `backup` folder temporarily in the
+`~/Canvas/personal/` directory.
 
 ### Restore SSH
 
@@ -82,8 +93,8 @@ personal/` directory.
     sudo chown -R $USER:$USER ~/.ssh
     chmod -R 700 ~/.ssh
     ```
-* If you've changed the username from `rednafi` to anything else, in that case, you've to
-regenerate the public ssh key from the private key.
+* If you've changed the username from `rednafi` to anything else, in that case, you've
+to regenerate the public ssh key from the private key.
 
     First copy the `id_rsa` private key to the `~/.ssh` folder and change the permission
     via the commands stated above. Then run:
@@ -107,12 +118,12 @@ regenerate the public ssh key from the private key.
 * Overwrite `.zshrc`:
 
     ```
-    cp backup/.zshrc ~/.zshrc
+    cp ~/Canvas/personal/backup/.zshrc ~/.zshrc
     ```
 * Overwrite `.zsh_history`:
 
     ```
-    cp backup/.zsh_history ~/.zsh_history
+    cp ~/Canvas/personal/backup/.zsh_history ~/.zsh_history
     ```
 
 ### Install tools
@@ -120,56 +131,53 @@ regenerate the public ssh key from the private key.
 Although all of these tools are download via scripts, they still need some manual
 supervision. That's why it's better to run them one by one instead of in a single go.
 
-* Install Jetbrains Mono font:
+* Install Homebrew:
 
 ```
-make install_fonts
-```
-* Install Python:
-
-```
-make install_python
-```
-* Install Golang:
-
-```
-make install_go
-```
-* Install misc tools. This should install:
-    * code
-    * curl
-    * dnsutils
-    * htop
-    * jq
-    * nano
-    * net-tools
-    * postman
-    * telnet
-    * vlc player
-    * qbittorrent
-
-```
-make install_tools
+/bin/bash -c \
+    "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-## Issues & fixes
+* By default, macOS is shipped with a really old version of Bash for licensing issues.
+Let's update that first:
 
-### Fix inconsistent Gnome settings
+```
+brew install bash
+```
 
-* Execute this to hide the fat and ugly Gnome title bar.
+* Install Python. Python is installed with `asdf` CLI version manager. First, install
+`asdf`:
 
-    ```
-    gsettings set org.gnome.Terminal.Legacy.Settings headerbar false
-    ```
-* Install and turn on [pixel-saver][1] Gnome extension to increase screen real estate.
-* Disable the dock permanently.
+```
+brew install asdf
+```
 
-    ```
-    gnome-extensions disable ubuntu-dock@ubuntu.com
-    ```
+Add `asdf` Python plugin:
 
-[1]: https://extensions.gnome.org/extension/723/pixel-saver/
+```
+asdf plugin-add python
+```
+
+Install your preferred version of Python:
+
+```
+asdf install python 3.11.1
+```
+
+Set up global Python version:
+
+```
+asdf global Python 3.11.1
+```
+
+* Similarly, install NodeJS and Golang by following the instructions [here][4]. Also,
+checkout the `./.tool-versions` file in this repo.
 
 <div align="center">
 <i> ✨ 🍰 ✨ </i>
 </div>
+
+[1]: https://shields.io/badge/MacOS--9cf?logo=Apple&style=for-the-badge
+[2]: https://img.shields.io/static/v1?style=for-the-badge&message=.ENV&color=555555&logo=.ENV&logoColor=ECD53F&label=
+[3]: https://img.shields.io/static/v1?style=for-the-badge&message=Apple&color=000000&logo=Apple&logoColor=FFFFFF&label=
+[4]: https://asdf-vm.com/guide/getting-started.html#install-the-plugin
