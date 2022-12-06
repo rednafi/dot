@@ -3,11 +3,6 @@
 ##########################################
 
 bindkey -e
-
-# Make the ctrl + arrow keys work like bash.
-bindkey '^[[1;5C' emacs-forward-word
-bindkey '^[[1;5D' emacs-backward-word
-
 export CLICOLOR=1
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
@@ -100,23 +95,6 @@ setopt HIST_VERIFY
 # Aliases
 ##########################################
 
-# Enable color support of ls and also add handy aliases.
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias dir="dir --color=auto"
-    alias vdir="vdir --color=auto"
-
-    alias grep="grep --color=auto"
-    alias fgrep="fgrep --color=auto"
-    alias egrep="egrep --color=auto"
-fi
-
-# Add an "alert" alias for long running commands.  Use like so:
-#  sleep 10; alert
-alias alert='notify-send \
-    --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" \
-    "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # Git.
 # Clears all the branches other than the current branch, 'main', 'master' & 'staging'.
 alias brclr="git branch \
@@ -134,15 +112,9 @@ alias sudo="sudo "
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"
-alias ls="ls --group-directories-first --color=auto"
+alias ls="ls -G"
 alias ping="ping -c5"
-alias pkill="pkill -ecfi"
-alias update="sudo apt update \
-                && sudo apt upgrade \
-                && sudo apt autoclean \
-                && sudo apt autoremove"
 alias www="python3 -m http.server 6969"
-
 
 # Docker
 start_redis() {
@@ -163,38 +135,21 @@ stop_redis() {
 
 alias docker_prune_containers='docker stop $(docker ps -aq) 2> /dev/null \
                             && docker rm $(docker ps -aq) 2> /dev/null'
-
 alias docker_prune_images='docker rmi --force $(docker images -q) || true'
 alias docker_nuke="docker_prune_containers \
                 && docker_prune_images \
                 && docker system prune -af --volumes"
 
-
-# Fzf
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-
-alias dsh='docker exec -it $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  ) sh'
-alias dbash='docker exec -it $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  ) bash'
-alias drm='docker rm -f $(  docker ps | fzf | awk '"'"'{print $1;}'"'"'  )'
-alias drma='docker rm -f $(  docker ps -a | fzf | awk '"'"'{print $1;}'"'"'  )'
-
-
-# NVM is slow, this is a custom solution
-export NVM_DIR=~/.nvm
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use # This loads nvm
-
-alias node='unalias node ; unalias npm ; nvm use default ; node $@'
-alias npm='unalias node ; unalias npm ; nvm use default ; npm $@'
-
+# Workplace (Dendi).
+alias dendi-restart="docker compose restart \
+    lis_gunicorn lis_daphne caddy worker redis redisinsight dnsmasq"
 
 ##########################################
 # Apps
 ##########################################
 
-# Go path
-PATH=$PATH:/usr/local/go/bin
+# asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-# Fly.io
-export FLYCTL_INSTALL="/home/rednafi/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
+# Go
+PATH=$PATH:/usr/local/go/bin
