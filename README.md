@@ -50,6 +50,7 @@ fumbling for missing pieces while I'm working on something, etc.
 * Take a backup of the following entities and put them in a folder called `backup`:
     * `.ssh` directory
     * `.zshrc`, `.zsh_history`, `.zprofile`
+    * `.gitconfig`
     * `.ovpn` config
     * `.env` files and the credentials of disparate projects
 
@@ -183,4 +184,4 @@ configured.
 [homebrew]: https://img.shields.io/static/v1?style=for-the-badge&message=brew&color=555555&logo=Homebrew&logoColor=ECD53F&label=
 [asdf-node]: https://asdf-vm.com/guide/getting-started.html#install-the-plugin
 [tool-versions]: ./.tool-versions
-[orbstack]: 
+[orbstack]:
