@@ -3,9 +3,9 @@
 <h1>Setup</h1>
 <strong>>> <i>Dotfiles & workspace setup</i> <<</strong><br><br>
 
-![.ENV][1]
-![macos-logo][2]
-![homebrew][3]
+![.ENV]
+![macos-logo]
+![homebrew]
 </div>
 
 
@@ -19,22 +19,22 @@ fumbling for missing pieces while I'm working on something, etc.
 ## Work machine
 
 ```
-                    'c.          rednafi@mbp.local
-                 ,xNMM.          -----------------
-               .OMMMMo           OS: macOS 13.0.1 22A400 arm64
-               OMMM0,            Host: MacBookPro18,1
-     .;loddo:' loolloddol;.      Kernel: 22.1.0
-   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 2 days, 8 hours, 6 mins
- .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 28 (brew)
- XMMMMMMMMMMMMMMMMMMMMMMMX.      Shell: zsh 5.8.1
-;MMMMMMMMMMMMMMMMMMMMMMMM:       Resolution: 1496x967
+                    'c.          rednafi@mac
+                 ,xNMM.          -----------
+               .OMMMMo           OS: macOS 13.4.1 22F2083 arm64
+               OMMM0,            Host: Mac14,15
+     .;loddo:' loolloddol;.      Kernel: 22.5.0
+   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 16 hours, 53 mins
+ .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 45 (brew)
+ XMMMMMMMMMMMMMMMMMMMMMMMX.      Shell: zsh 5.9
+;MMMMMMMMMMMMMMMMMMMMMMMM:       Resolution: 1440x932
 :MMMMMMMMMMMMMMMMMMMMMMMM:       DE: Aqua
-.MMMMMMMMMMMMMMMMMMMMMMMMX.      WM: Rectangle
- kMMMMMMMMMMMMMMMMMMMMMMMMWd.    Terminal: Apple_Terminal
- .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   Terminal Font: SFMono-Regular
-  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   CPU: Apple M1 Pro
-    kMMMMMMMMMMMMMMMMMMMMMMd     GPU: Apple M1 Pro
-     ;KMMMMMMMWXXWMMMMMMMk.      Memory: 3865MiB / 32768MiB
+.MMMMMMMMMMMMMMMMMMMMMMMMX.      WM: Quartz Compositor
+ kMMMMMMMMMMMMMMMMMMMMMMMMWd.    WM Theme: Blue (Light)
+ .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   Terminal: vscode
+  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   CPU: Apple M2
+    kMMMMMMMMMMMMMMMMMMMMMMd     GPU: Apple M2
+     ;KMMMMMMMWXXWMMMMMMMk.      Memory: 2223MiB / 16384MiB
        .cooc,.    .,coo:.
 ```
 
@@ -59,36 +59,36 @@ fumbling for missing pieces while I'm working on something, etc.
 
 * Work and personal project directory layout should always have the following structure:
 
-    ```
-    ~/Canvas
+    ```txt
+    ~/canvas
     ├── company_a
     │   ├── project_1
     │   └── project_2
     ├── company_b
     │   ├── project_1
     │   └── project_2
-    └── personal
+    └── projects
         ├── project_1
         └── project_2
     ```
 * To create the above project directory layout, run:
 
-    ```
-    mkdir -p ~/Canvas/<company_name> && mkdir -p ~/Canvas/personal
+    ```sh
+    mkdir -p ~/canvas/<company_name> && mkdir -p ~/canvas/projects
     ```
 * Before starting to restore things, put the `backup` folder temporarily in the
-`~/Canvas/personal/` directory.
+`~/canvas/projects/` directory.
 
 ### Restore SSH
 
 * Copy the backup ssh keys into the `~/.ssh` folder:
 
-    ```
+    ```sh
     cp -r backup/.ssh/* ~/.ssh
     ```
 * Change folder permission:
 
-    ```
+    ```sh
     sudo chown -R $USER:$USER ~/.ssh
     chmod -R 700 ~/.ssh
     ```
@@ -98,31 +98,8 @@ to regenerate the public ssh key from the private key.
     First copy the `id_rsa` private key to the `~/.ssh` folder and change the permission
     via the commands stated above. Then run:
 
-    ```
+    ```sh
     ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub
-    ```
-
-### Restore .zshrc & zsh_history
-
-* Install Zsh if it's not already installed:
-
-    ```
-    sudo apt install zsh -y
-    ```
-* Change shell to Zsh:
-
-    ```
-    sudo chsh -s $(command -v zsh)
-    ```
-* Overwrite `.zshrc`:
-
-    ```
-    cp ~/Canvas/personal/backup/.zshrc ~/.zshrc
-    ```
-* Overwrite `.zsh_history`:
-
-    ```
-    cp ~/Canvas/personal/backup/.zsh_history ~/.zsh_history
     ```
 
 ### Install tools
@@ -132,52 +109,78 @@ supervision. That's why it's better to run them one by one instead of in a singl
 
 * Install Homebrew:
 
-    ```
+    ```sh
     /bin/bash -c \
-        "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     ```
 
-* By default, macOS is shipped with a really old version of Bash for licensing issues.
+* By default, MacOS is shipped with a really old version of Bash for licensing issues.
 Let's update that first:
 
-    ```
+    ```sh
     brew install bash
     ```
 * Install Python. Python is installed with `asdf` CLI version manager. First, install
 `asdf`:
 
-    ```
+    ```sh
     brew install asdf
     ```
 
     Add `asdf` Python plugin:
 
-    ```
+    ```sh
     asdf plugin-add python
     ```
 
     Install your preferred version of Python:
 
-    ```
-    asdf install python 3.11.1
+    ```sh
+    asdf install python 3.11.4
     ```
 
     Set up global Python version:
 
-    ```
-    asdf global Python 3.11.1
+    ```sh
+    asdf global Python 3.11.4
     ```
 
-* Similarly, install NodeJS and Golang by following the instructions [here][4]. Also,
-checkout the [`tool-versions`][5] config file to see how `asdf` managed CLIs are
+* Similarly, install NodeJS and Golang by following the instructions [here][asdf-node].
+Also, checkout the [tool-versions] config file to see how `asdf` managed CLIs are
 configured.
+
+* Install docker with [orbstack].
+
+### Restore .zshrc & zsh_history
+
+* Install zsh if it's not already installed:
+
+    ```sh
+    brew install zsh
+    ```
+* Change shell to zsh:
+
+    ```sh
+    sudo chsh -s $(command -v zsh)
+    ```
+* Overwrite `.zshrc`:
+
+    ```sh
+    cp ~/canvas/personal/backup/.zshrc ~/.zshrc
+    ```
+* Overwrite `.zsh_history`:
+
+    ```sh
+    cp ~/canvas/personal/backup/.zsh_history ~/.zsh_history
+    ```
 
 <div align="center">
 <i> ✨ 🍰 ✨ </i>
 </div>
 
-[1]: https://img.shields.io/static/v1?style=for-the-badge&message=ENV&color=555555&logo=.ENV&logoColor=ECD53F&label=
-[2]: https://shields.io/badge/MacOS--1cf?logo=Apple&style=for-the-badge
-[3]: https://img.shields.io/static/v1?style=for-the-badge&message=brew&color=555555&logo=Homebrew&logoColor=ECD53F&label=
-[4]: https://asdf-vm.com/guide/getting-started.html#install-the-plugin
-[5]: ./.tool-versions
+[.env]: https://img.shields.io/static/v1?style=for-the-badge&message=ENV&color=555555&logo=.ENV&logoColor=ECD53F&label=
+[macos-logo]: https://shields.io/badge/MacOS--1cf?logo=Apple&style=for-the-badge
+[homebrew]: https://img.shields.io/static/v1?style=for-the-badge&message=brew&color=555555&logo=Homebrew&logoColor=ECD53F&label=
+[asdf-node]: https://asdf-vm.com/guide/getting-started.html#install-the-plugin
+[tool-versions]: ./.tool-versions
+[orbstack]: 

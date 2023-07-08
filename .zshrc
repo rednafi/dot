@@ -122,7 +122,7 @@ start_redis() {
     echo "================================"
     echo
     stop_redis
-    command docker run --name dev-redis -d -h localhost -p 6379:6379 redis:7-alpine
+    command docker run --name dev-redis -d -h localhost -p 6379:6379 redis:alpine
     echo
 }
 
@@ -133,10 +133,10 @@ stop_redis() {
     echo
 }
 
-alias docker_prune_containers='docker stop $(docker ps -aq) 2> /dev/null \
+alias docker-prune-containers='docker stop $(docker ps -aq) 2> /dev/null \
                             && docker rm $(docker ps -aq) 2> /dev/null'
-alias docker_prune_images='docker rmi --force $(docker images -q) || true'
-alias docker_nuke="docker_prune_containers \
+alias docker-prune-images='docker rmi --force $(docker images -q) || true'
+alias docker-nuke="docker_prune_containers \
                 && docker_prune_images \
                 && docker system prune -af --volumes"
 
@@ -149,3 +149,5 @@ alias docker_nuke="docker_prune_containers \
 
 # Go
 PATH=$PATH:/usr/local/go/bin
+
+export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
