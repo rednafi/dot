@@ -184,4 +184,4 @@ configured.
 [homebrew]: https://img.shields.io/static/v1?style=for-the-badge&message=brew&color=555555&logo=Homebrew&logoColor=ECD53F&label=
 [asdf-node]: https://asdf-vm.com/guide/getting-started.html#install-the-plugin
 [tool-versions]: ./.tool-versions
-[orbstack]:
+[orbstack]: https://docs.orbstack.dev/
