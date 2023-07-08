@@ -24,26 +24,26 @@ fumbling for missing pieces while I'm working on something, etc.
                .OMMMMo           OS: macOS 13.4.1 22F2083 arm64
                OMMM0,            Host: Mac14,15
      .;loddo:' loolloddol;.      Kernel: 22.5.0
-   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 16 hours, 53 mins
- .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 45 (brew)
+   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 19 hours
+ .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 21 (brew)
  XMMMMMMMMMMMMMMMMMMMMMMMX.      Shell: zsh 5.9
 ;MMMMMMMMMMMMMMMMMMMMMMMM:       Resolution: 1440x932
 :MMMMMMMMMMMMMMMMMMMMMMMM:       DE: Aqua
 .MMMMMMMMMMMMMMMMMMMMMMMMX.      WM: Quartz Compositor
  kMMMMMMMMMMMMMMMMMMMMMMMMWd.    WM Theme: Blue (Light)
- .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   Terminal: vscode
-  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   CPU: Apple M2
-    kMMMMMMMMMMMMMMMMMMMMMMd     GPU: Apple M2
-     ;KMMMMMMMWXXWMMMMMMMk.      Memory: 2223MiB / 16384MiB
-       .cooc,.    .,coo:.
+ .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   Terminal: Apple_Terminal
+  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   Terminal Font: SFMono-Regular
+    kMMMMMMMMMMMMMMMMMMMMMMd     CPU: Apple M2
+     ;KMMMMMMMWXXWMMMMMMMk.      GPU: Apple M2
+       .cooc,.    .,coo:.        Memory: 2224MiB / 16384MiB
 ```
 
 ## OS settings
 
-* OS                    : MacOS Ventura
-* Terminal              : Gnome terminal.
-* Shell                 : Zsh with a simple 5 lines custom plugin manager.
-* Mono Font             : SF Mono
+* OS                    : macOS
+* Terminal              : xterm-256color
+* Shell                 : zsh with a simple 5 lines custom plugin manager
+* Mono font             : sf Mono
 
 ## OS pre installation steps
 
