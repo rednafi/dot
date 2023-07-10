@@ -24,18 +24,18 @@ fumbling for missing pieces while I'm working on something, etc.
                .OMMMMo           OS: macOS 13.4.1 22F2083 arm64
                OMMM0,            Host: Mac14,15
      .;loddo:' loolloddol;.      Kernel: 22.5.0
-   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 19 hours
- .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 21 (brew)
+   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 2 days, 19 hours, 8 mins
+ .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 22 (brew)
  XMMMMMMMMMMMMMMMMMMMMMMMX.      Shell: zsh 5.9
 ;MMMMMMMMMMMMMMMMMMMMMMMM:       Resolution: 1440x932
 :MMMMMMMMMMMMMMMMMMMMMMMM:       DE: Aqua
 .MMMMMMMMMMMMMMMMMMMMMMMMX.      WM: Quartz Compositor
  kMMMMMMMMMMMMMMMMMMMMMMMMWd.    WM Theme: Blue (Light)
  .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   Terminal: Apple_Terminal
-  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   Terminal Font: SFMono-Regular
+  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   Terminal Font: Menlo-Regular
     kMMMMMMMMMMMMMMMMMMMMMMd     CPU: Apple M2
      ;KMMMMMMMWXXWMMMMMMMk.      GPU: Apple M2
-       .cooc,.    .,coo:.        Memory: 2224MiB / 16384MiB
+       .cooc,.    .,coo:.        Memory: 2258MiB / 16384MiB
 ```
 
 ## OS settings
@@ -43,7 +43,7 @@ fumbling for missing pieces while I'm working on something, etc.
 * OS                    : macOS
 * Terminal              : xterm-256color
 * Shell                 : zsh with a simple 5 lines custom plugin manager
-* Mono font             : sf Mono
+* Mono font             : menlo-regular
 
 ## OS pre installation steps
 
