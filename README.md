@@ -18,13 +18,13 @@ fumbling for missing pieces while I'm working on something, etc.
 
 ## Work machine
 
-```
+```txt
                     'c.          rednafi@mac
                  ,xNMM.          -----------
                .OMMMMo           OS: macOS 13.4.1 22F2083 arm64
                OMMM0,            Host: Mac14,15
      .;loddo:' loolloddol;.      Kernel: 22.5.0
-   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 2 days, 19 hours, 8 mins
+   cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 5 days, 4 hours, 37 mins
  .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 22 (brew)
  XMMMMMMMMMMMMMMMMMMMMMMMX.      Shell: zsh 5.9
 ;MMMMMMMMMMMMMMMMMMMMMMMM:       Resolution: 1440x932
@@ -32,10 +32,10 @@ fumbling for missing pieces while I'm working on something, etc.
 .MMMMMMMMMMMMMMMMMMMMMMMMX.      WM: Quartz Compositor
  kMMMMMMMMMMMMMMMMMMMMMMMMWd.    WM Theme: Blue (Light)
  .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   Terminal: Apple_Terminal
-  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   Terminal Font: Menlo-Regular
+  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   Terminal Font: JetBrainsMono-Regular
     kMMMMMMMMMMMMMMMMMMMMMMd     CPU: Apple M2
      ;KMMMMMMMWXXWMMMMMMMk.      GPU: Apple M2
-       .cooc,.    .,coo:.        Memory: 2258MiB / 16384MiB
+       .cooc,.    .,coo:.        Memory: 2335MiB / 16384MiB
 ```
 
 ## OS settings
@@ -43,7 +43,7 @@ fumbling for missing pieces while I'm working on something, etc.
 * OS                    : macOS
 * Terminal              : xterm-256color
 * Shell                 : zsh with a simple 5 lines custom plugin manager
-* Mono font             : menlo-regular
+* Mono font             : jetbrains mono regular
 
 ## OS pre installation steps
 
