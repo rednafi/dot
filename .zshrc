@@ -24,12 +24,12 @@ unset initscript
 # Based on: https://www.reddit.com/r/zsh/comments/dlmf7r/manually_setup_plugins/
 
 github_plugins=(
-  zsh-users/zsh-autosuggestions
-  zsh-users/zsh-completions
-  zsh-users/zsh-history-substring-search
+    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-completions
+    zsh-users/zsh-history-substring-search
 
-  # Must be placed in the last position.
-  zsh-users/zsh-syntax-highlighting
+    # Must be placed in the last position.
+    zsh-users/zsh-syntax-highlighting
 )
 
 # Install plugins.
@@ -136,8 +136,8 @@ stop_redis() {
 alias docker-prune-containers='docker stop $(docker ps -aq) 2> /dev/null \
                             && docker rm $(docker ps -aq) 2> /dev/null'
 alias docker-prune-images='docker rmi --force $(docker images -q) || true'
-alias docker-nuke="docker_prune_containers \
-                && docker_prune_images \
+alias docker-nuke="docker-prune-containers \
+                && docker-prune-images \
                 && docker system prune -af --volumes"
 
 ##########################################
