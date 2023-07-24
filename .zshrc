@@ -122,7 +122,7 @@ start_redis() {
     echo "================================"
     echo
     stop_redis
-    command docker run --name dev-redis -d -h localhost -p 6379:6379 redis:alpine
+    command docker run --name dev-redis -d -h localhost -p "6379:6379" redis:alpine
     echo
 }
 
