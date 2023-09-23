@@ -139,5 +139,4 @@ cython_debug/
 
 .bash_history
 .bash_logout
-.ssh
-
+ssh/.ssh/id_ed25519
