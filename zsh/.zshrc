@@ -145,7 +145,7 @@ alias docker-nuke="docker-prune-containers \
 ##########################################
 
 # asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+#. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Go
 PATH=$PATH:/usr/local/go/bin
