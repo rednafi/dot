@@ -10,16 +10,17 @@ RESET=$(tput sgr0)
 
 # Formulae
 FORMULAE=(
-    git
-    stow
-    zsh
     bash
     curl
-    go
     gh
-    neofetch
+    git
+    go
     htop
-    "python@3.11"
+    jq
+    neofetch
+    python@3.11
+    stow
+    zsh
 )
 
 # Casks
@@ -29,6 +30,14 @@ CASKS=(
     "visual-studio-code"
     "firefox"
     "google-chrome"
+)
+
+# Stow
+STOW=(
+    git
+    ssh
+    term
+    zsh
 )
 
 # Print a header section
@@ -97,6 +106,10 @@ brew_cleanup
 
 # Stow dotfiles
 print_info "- stowing config files..."
-stow -v -R -t ~ git ssh zsh
+stow -v -R -t ~ "${STOW[@]}"
+
+# Stop .DS_Store files from being created
+print_info "- disabling .DS_store files..."
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 
 print_info "- Done!"
