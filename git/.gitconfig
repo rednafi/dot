@@ -16,3 +16,8 @@
 [color]
 	ui = true
 
+[grep]
+	lineNumber = true
+
+[init]
+  defaultBranch = main

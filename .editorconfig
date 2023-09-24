@@ -1,0 +1,30 @@
+
+
+# EditorConfig: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# Matches multiple files with brace expansion notation
+[*.{md,py,sh}]
+indent_style = space
+indent_size = 4
+
+[*.{json,yml,yaml,html,css,scss,js,jsx,ts,tsx}]
+indent_style = space
+indent_size = 2
+
+# 4 space tab indentation
+[*.go]
+indent_style = tab
+tab_width = 4
+
+# Tab indentation
+[Makefile]
+indent_style = tab
+tab_width = 4

@@ -58,38 +58,29 @@ precmd() { print }
 PS1="%{%F{yellow}%}%n@%{%f%}%{%F{yellow}%}%m:%{%F{cyan}%}% %(5~|%-1~/.../%3~|%4~)
 %{%f%}$ "
 
-##########################################
-# History
-##########################################
-
-# Set history size.
-export HISTSIZE=10000
-
-# Save history after logout.
-export SAVEHIST=100000
-
-# History file.
-export HISTFILE=~/.zsh_history
-
-# Save only one command if 2 common are same and consistent.
-setopt HIST_IGNORE_DUPS
-
-# Ignore space.
-setopt HIST_IGNORE_SPACE
-
-# Add timestamp for each entry.
-setopt EXTENDED_HISTORY
-
-# Reloads the history whenever you use it. Turn of INC_APPEND_HISTORY when this is
-# turned on.
+# Enable interactive history sharing between tabs
 setopt SHARE_HISTORY
 
-# Start expiring duplicate histories first.
-setopt HIST_EXPIRE_DUPS_FIRST
+# Append new history entries to the history file in real-time
+setopt INC_APPEND_HISTORY
 
-# Whenever the user enters a line with history expansion, don’t execute the line
-#directly; instead, perform history expansion and reload the line into the editing buffer.
+# Ignore duplicate commands in history
+setopt HIST_IGNORE_ALL_DUPS
+
+# Reduce multiple consecutive blank lines in history to one
+setopt HIST_REDUCE_BLANKS
+
+# Ignore duplicates when adding commands to history
+setopt HIST_IGNORE_DUPS
+
+# Ignore commands with leading whitespace in history
+setopt HIST_IGNORE_SPACE
+
+# Verify commands before executing them from history
 setopt HIST_VERIFY
+
+# Beep when accessing a nonexistent history command
+setopt HIST_BEEP
 
 ##########################################
 # Aliases
@@ -151,3 +142,7 @@ alias docker-nuke="docker-prune-containers \
 PATH=$PATH:/usr/local/go/bin
 
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
+
+# Editor
+export EDITOR=nano
+export VISUAL="$EDITOR"
