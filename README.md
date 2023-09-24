@@ -1,6 +1,6 @@
 # (.) dot
 
-Dotfiles and OS setup instructions. GNU [stow] is used to manage the config files.
+Dotfiles and workspace setup. GNU [stow] is used to manage the config files.
 
 
 ## Pre-reinstall
