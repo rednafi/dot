@@ -43,7 +43,7 @@ After OS reinstallation:
 
 ### Restore SSH
 
-* Copy the private ssh key into the `~/.ssh` folder:
+* Copy the private ssh key into the `~/.ssh` folder.
 * Change directory permission:
     ```sh
     sudo chown -R $USER:$USER ~/.ssh
