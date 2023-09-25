@@ -35,6 +35,7 @@ CASKS=(
 
 # Stow
 STOW=(
+    gh
     git
     ssh
     term
