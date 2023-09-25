@@ -17,6 +17,7 @@ FORMULAE=(
     go
     htop
     jq
+    micro
     neofetch
     python@3.11
     stow

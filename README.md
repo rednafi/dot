@@ -55,3 +55,4 @@ After OS reinstallation, perform these steps in order:
 * Double click on the `~/.conf.terminal` file and save it as a profile.
 
 [stow]: https://www.gnu.org/software/stow/
+

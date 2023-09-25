@@ -144,5 +144,5 @@ PATH=$PATH:/usr/local/go/bin
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
 # Editor
-export EDITOR=nano
+export EDITOR=micro
 export VISUAL="$EDITOR"
