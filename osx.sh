@@ -31,5 +31,5 @@ print_info "- disabling auto-correct..."
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Set ssh permissions
-sudo chown -R $USER:$USER ~/.ssh
+sudo chown -R "$USER:$USER" ~/.ssh
 chmod -R 700 ~/.ssh
