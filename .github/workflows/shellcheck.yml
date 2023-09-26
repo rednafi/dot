@@ -1,9 +1,9 @@
-name: ShellCheck
+name: shellcheck
 
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   shellcheck:
@@ -13,7 +13,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Install ShellCheck
+    - name: Install shellcheck
       run: |
         sudo apt-get update
         sudo apt-get install shellcheck -y
