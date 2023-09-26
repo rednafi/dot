@@ -1,7 +1,6 @@
 # (.) dot
 
-Dotfiles and workspace setup. GNU [stow] is used to manage the config files.
-
+Dotfiles and workspace setup on macOS. GNU [stow] is used to manage the config files.
 
 ## Pre-reinstall
 
@@ -41,18 +40,8 @@ After OS reinstallation, perform these steps in order:
     chmod +x init.sh && ./init.sh
     ```
 
-### Restore SSH keys
-
-* Copy the private ssh key into the `~/.ssh` folder.
-* Change directory permission:
-    ```sh
-    sudo chown -R $USER:$USER ~/.ssh
-    chmod -R 700 ~/.ssh
-    ```
-
 ### Restore terminal settings
 
 * Double click on the `~/.conf.terminal` file and save it as a profile.
 
 [stow]: https://www.gnu.org/software/stow/
-
