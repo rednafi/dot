@@ -24,7 +24,7 @@ print_info "- disabling the sound effects on boot..."
 sudo nvram StartupMute=%01
 
 # Disable the “Are you sure you want to open this application?” dialog
-print_info "- disabling the “Are you sure you want to open this application?” dialog..."
+print_info "- disabling the 'Are you sure you want to open this application?' dialog..."
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Disable auto-correct
