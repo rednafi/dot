@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/bash
+#!/usr/bin/env bash
 
 : '
    Customizing macOS settings.
@@ -31,5 +31,6 @@ print_info "- disabling auto-correct..."
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Set ssh permissions
-sudo chown -R "$USER:$USER" ~/.ssh
+print_info "- setting ssh permissions..."
+sudo chown -R "$USER:admin" ~/.ssh
 chmod -R 700 ~/.ssh

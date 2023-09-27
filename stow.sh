@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/bash
+#!/usr/bin/env bash
 
 : '
     Run GNU stow to symlink dotfiles to the home directory.

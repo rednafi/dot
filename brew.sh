@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/bash
+#!/usr/bin/env bash
 
 : '
     Install Homebrew formulae and casks.
@@ -21,6 +21,7 @@ FORMULAE=(
     python@3.11
     shellcheck
     stow
+    tree
     zsh
 )
 

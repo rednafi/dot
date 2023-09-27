@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/bash
+#!/usr/bin/env bash
 
 : '
     Standard functions and variables to be used by other scripts.
