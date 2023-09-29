@@ -22,6 +22,7 @@ FORMULAE=(
     shellcheck
     stow
     tree
+    watch
     zsh
 )
 
