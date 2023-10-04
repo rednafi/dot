@@ -95,17 +95,16 @@ alias brclr="git branch \
 # Splits the name of the current branch by '_' and picks the first token.
 alias brpre="git branch --show-current | cut -d'_' -f1"
 
-# Opens all the files changed in the current branch.
-alias last_changed="git diff-tree --no-commit-id --name-only -r HEAD | xargs code"
-
 ## Unix magics.
 alias sudo="sudo "
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"
 alias ls="ls -G"
-alias ping="ping -c5"
+alias clear_cache='$ ls -d ~/Library/Caches/*/ | grep -v "com.*" | xargs -n 1 sudo rm -rf || true \
+	 && sudo rm -rf ~/.cache/* || true'
 alias www="python3 -m http.server 6969"
+
 
 # Docker
 start_redis() {
@@ -134,9 +133,6 @@ alias docker-nuke="docker-prune-containers \
 ##########################################
 # Apps
 ##########################################
-
-# asdf
-#. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Go
 PATH=$PATH:/usr/local/go/bin

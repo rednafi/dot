@@ -18,7 +18,8 @@ FORMULAE=(
     jq
     micro
     neofetch
-    python@3.11
+    parallel
+    python@3.12
     shellcheck
     stow
     tree
