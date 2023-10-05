@@ -34,3 +34,7 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 print_info "- setting ssh permissions..."
 sudo chown -R "$USER:admin" ~/.ssh
 chmod -R 700 ~/.ssh
+
+# Run lfs init
+print_info "- running git lfs install..."
+git lfs install
