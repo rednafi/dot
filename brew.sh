@@ -12,6 +12,7 @@ FORMULAE=(
     curl
     gh
     git
+    git-lfs
     go
     htop
     hugo
