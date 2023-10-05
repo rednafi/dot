@@ -44,7 +44,7 @@ function install_homebrew() {
   # Check for Homebrew installation
   if ! command -v brew &> /dev/null; then
     print_info "- installing homebrew..."
-    /bin/bash -c "$(curl -fsSL $brew_url)"
+    /bin/bash -c "$(curl -fsSL "$brew_url")"
     print_info "- homebrew installed ✓"
   else
     print_info "- homebrew already installed ✓"

@@ -10,6 +10,7 @@ source ./lib.sh
 STOW=(
     gh
     git
+    shellcheck
     ssh
     term
     zsh

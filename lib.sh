@@ -31,3 +31,4 @@ function print_header() {
 function print_info() {
     echo -e "${GREEN}$1${RESET}"
 }
+
