@@ -31,9 +31,12 @@ FORMULAE=(
 # Casks
 CASKS=(
     "aldente"
-    "font-jetbrains-mono"
     "visual-studio-code"
     "google-chrome"
+)
+
+FONTS=(
+    "font-jetbrains-mono"
 )
 
 # Install homebrew
@@ -53,12 +56,17 @@ function install_homebrew() {
 
 # Install a Homebrew formula/cask if not already installed
 function brew_install() {
-    if ! brew list "$1" &> /dev/null; then
-        print_info "- installing $1..."
-        brew install "$1"
-        print_info "- $1 installed ✓"
+    local formula="$1"
+    if ! brew list "$formula" &>/dev/null; then
+        print_info "- Installing $formula..."
+        if ! /opt/homebrew/bin/brew install "$formula" 2>&1 \
+            | grep -q "already an App at"; then
+            print_info "- $formula installed ✓"
+        else
+            print_info "- $formula is already installed ✓"
+        fi
     else
-        print_info "- $1 is already installed ✓"
+        print_info "- $formula is already installed ✓"
     fi
 }
 
@@ -82,6 +90,8 @@ function brew_cleanup() {
 
 print_header "HOMEBREW SCRIPT"
 
+install_homebrew
+
 # Install Homebrew formulae
 for formula in "${FORMULAE[@]}"; do
     brew_install "$formula"
@@ -90,6 +100,12 @@ done
 # Install Homebrew casks
 for cask in "${CASKS[@]}"; do
     brew_install "$cask" --cask
+done
+
+# Install Homebrew fonts
+for font in "${FONTS[@]}"; do
+    /opt/homebrew/bin/brew tap homebrew/cask-fonts
+    brew_install "$font"
 done
 
 brew_upgrade
