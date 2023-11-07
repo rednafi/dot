@@ -46,6 +46,6 @@ alias ,www="python3 -m http.server 6969"
 alias ,docker-prune-containers='docker stop $(docker ps -aq) 2> /dev/null \
                             && docker rm $(docker ps -aq) 2> /dev/null'
 alias ,docker-prune-images='docker rmi --force $(docker images -q) || true'
-alias ,docker-nuke="docker-prune-containers \
-                && docker-prune-images \
+alias ,docker-nuke=",docker-prune-containers \
+                && ,docker-prune-images \
                 && docker system prune -af --volumes"
