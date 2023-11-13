@@ -77,6 +77,9 @@ setopt HIST_VERIFY
 # Beep when accessing a nonexistent history command
 setopt HIST_BEEP
 
+# Cd path
+CDPATH="$CDPATH:$HOME/canvas"
+
 
 ##########################################
 # PORCELAIN
