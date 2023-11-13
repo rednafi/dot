@@ -1,26 +1,22 @@
 ##########################################
-# ZSHRC
+# PLUMBING
 ##########################################
 
 source ~/.zsh_aliases
 
 bindkey -e
+
 export CLICOLOR=1
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
 
-##########################################
 # Unsets
-##########################################
-
 unset github_plugins
 unset plugin
 unset initscript
 
-##########################################
 # Plugins
-##########################################
 
 # Build your own cool "plugin manager".
 # Based on: https://www.reddit.com/r/zsh/comments/dlmf7r/manually_setup_plugins/
@@ -52,10 +48,7 @@ done
 
 wait
 
-##########################################
 # Prompt
-##########################################
-
 precmd() { print }
 PS1="%{%F{yellow}%}%n@%{%f%}%{%F{yellow}%}%m:%{%F{cyan}%}% %(5~|%-1~/.../%3~|%4~)
 %{%f%}$ "
@@ -84,8 +77,9 @@ setopt HIST_VERIFY
 # Beep when accessing a nonexistent history command
 setopt HIST_BEEP
 
+
 ##########################################
-# Apps
+# PORCELAIN
 ##########################################
 
 # Go

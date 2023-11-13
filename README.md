@@ -1,4 +1,4 @@
-# (.) dot
+# [.] dot
 
 Dotfiles and workspace setup on macOS. GNU [stow] is used to manage the config files.
 
