@@ -24,7 +24,6 @@ unset initscript
 
 # Build your own cool "plugin manager".
 # Based on: https://www.reddit.com/r/zsh/comments/dlmf7r/manually_setup_plugins/
-
 github_plugins=(
     zsh-users/zsh-autosuggestions
     zsh-users/zsh-completions
@@ -34,23 +33,25 @@ github_plugins=(
     zsh-users/zsh-syntax-highlighting
 )
 
-# Install plugins.
+# Optimization to make plugin loading quicker
+git_command=/usr/bin/git
+zsh_plugins_dir=$HOME/.zsh_plugins
+
 for plugin in $github_plugins; do
-    # Clone if not exist.
-    if [[ ! -d $HOME/.zsh_plugins/$plugin ]]; then
-        mkdir -p $HOME/.zsh_plugins/${plugin%/*}
-        git clone --depth 1 \
-            --recursive https://github.com/$plugin.git $HOME/.zsh_plugins/$plugin
+    plugin_dir=$zsh_plugins_dir/$plugin
+
+    if [[ ! -d $plugin_dir ]]; then
+        mkdir -p $plugin_dir && $git_command clone --depth 1 \
+            --recursive https://github.com/$plugin.git $plugin_dir &
     fi
 
-    # Load the plugin.
     for initscript in ${plugin#*/}.zsh ${plugin#*/}.plugin.zsh ${plugin#*/}.sh; do
-        if [[ -f $HOME/.zsh_plugins/$plugin/$initscript ]]; then
-            source $HOME/.zsh_plugins/$plugin/$initscript
-            break
-        fi
+        script_path=$plugin_dir/$initscript
+
+        [[ -f $script_path ]] && source $script_path && break
     done
 done
+
 
 ##########################################
 # Prompt
