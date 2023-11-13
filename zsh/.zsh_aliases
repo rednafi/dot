@@ -1,51 +1,28 @@
-
 ##########################################
 # Aliases
 ##########################################
 
-# Git.
-# Clears all the branches other than the current branch, 'main', 'master' & 'staging'.
-alias ,brclr="git branch \
-            | grep -vwE 'main|master|staging|development' \
-            | xargs git branch -D"
+# Git: Clear branches except current, 'main', 'master', 'staging'.
+alias ,brclr="\
+    git branch | grep -vwE 'main|master|staging|development' | xargs git branch -D"
 
-# Splits the name of the current branch by '_' and picks the first token.
-alias ,brpre="git branch --show-current | cut -d'_' -f1"
-
-## Unix magics.
+## Unix
 alias sudo="sudo "
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"
 alias ls="ls -G"
-alias ,clear-cache='$ ls -d ~/Library/Caches/*/ | grep -v "com.*" | xargs -n 1 sudo rm -rf || true \
-	 && sudo rm -rf ~/.cache/* || true'
+
+# Misc
+alias ,clear-cache='\
+    $ ls -d ~/Library/Caches/*/ | grep -v "com.*" | xargs -n 1 sudo rm -rf || true \
+    && sudo rm -rf ~/.cache/* || true'
+
 alias ,www="python3 -m http.server 6969"
 
-
 # Docker
-,redis() {
-    if [[ $1 == "start" ]]; then
-        echo "Spinning up a Redis container..."
-        echo "================================"
-        echo
-        docker stop dev-redis
-        docker rm dev-redis
-        docker run --name dev-redis -d -h localhost -p "6379:6379" redis:alpine
-    elif [[ $1 == "stop" ]]; then
-        echo "Stopping Redis container..."
-        echo "============================"
-        echo
-        docker stop dev-redis
-        docker rm dev-redis
-    else
-        echo "Invalid argument: $1"
-    fi
-}
-
-alias ,docker-prune-containers='docker stop $(docker ps -aq) 2> /dev/null \
-                            && docker rm $(docker ps -aq) 2> /dev/null'
+alias ,docker-prune-containers='\
+    docker stop $(docker ps -aq) 2> /dev/null && docker rm $(docker ps -aq) 2> /dev/null'
 alias ,docker-prune-images='docker rmi --force $(docker images -q) || true'
-alias ,docker-nuke=",docker-prune-containers \
-                && ,docker-prune-images \
-                && docker system prune -af --volumes"
+alias ,docker-nuke="\
+    ,docker-prune-containers && ,docker-prune-images && docker system prune -af --volumes"

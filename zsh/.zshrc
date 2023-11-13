@@ -33,16 +33,14 @@ github_plugins=(
     zsh-users/zsh-syntax-highlighting
 )
 
-# Optimization to make plugin loading quicker
-git_command=/usr/bin/git
 zsh_plugins_dir=$HOME/.zsh_plugins
 
 for plugin in $github_plugins; do
     plugin_dir=$zsh_plugins_dir/$plugin
 
     if [[ ! -d $plugin_dir ]]; then
-        mkdir -p $plugin_dir && $git_command clone --depth 1 \
-            --recursive https://github.com/$plugin.git $plugin_dir &
+        mkdir -p "$plugin_dir" && git clone --depth 1 \
+            --recursive "https://github.com/$plugin.git" "$plugin_dir" > /dev/null 2>&1 &
     fi
 
     for initscript in ${plugin#*/}.zsh ${plugin#*/}.plugin.zsh ${plugin#*/}.sh; do
@@ -52,6 +50,7 @@ for plugin in $github_plugins; do
     done
 done
 
+wait
 
 ##########################################
 # Prompt
