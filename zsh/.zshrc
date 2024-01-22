@@ -86,10 +86,12 @@ CDPATH="$CDPATH:$HOME/canvas"
 ##########################################
 
 # Go
-PATH=$PATH:/usr/local/go/bin
+PATH=$PATH:~/go/bin
 
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
 # Editor
 export EDITOR=micro
-export VISUAL="$EDITOR"
+export VISUAL="code --wait"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
