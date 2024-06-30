@@ -8,6 +8,9 @@
 	editor = code --wait
 [diff]
 	algorithm = histogram
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 [grep]
 	lineNumber = true
 [filter "lfs"]
