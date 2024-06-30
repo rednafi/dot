@@ -1,38 +1,26 @@
 # This file should live in the home directory '~/.gitconfig'.
 
+[branch]
+	sort = -committerdate
+[color]
+	ui = true
+[core]
+	editor = code --wait
+[diff]
+	algorithm = histogram
+[grep]
+	lineNumber = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-
+	smudge = git-lfs smudge -- %f
+[init]
+	defaultBranch = main
+[merge]
+	conflictstyle = zdiff3
+[push]
+	autoSetupRemote = true
 [user]
 	email = redowan.nafi@gmail.com
 	name = rednafi
-
-[core]
-	editor = code --wait
-
-[color]
-	ui = true
-
-[grep]
-	lineNumber = true
-
-[init]
-	defaultBranch = main
-
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
-
-[diff]
-	algorithm = histogram
-
-[push]
-	autoSetupRemote = true
-
-[branch]
-	sort = -committerdate
-
-[merge]
-	conflictstyle = zdiff3
