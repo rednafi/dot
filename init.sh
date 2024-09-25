@@ -10,6 +10,6 @@
 # shellcheck source=./osx.sh
 
 source ./lib.sh
+source ./brew.sh
 source ./stow.sh
 source ./osx.sh
-source ./wrk.sh
