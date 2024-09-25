@@ -12,12 +12,9 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -iv"
 alias ls="ls -G"
+alias make="gmake"
 
 # Misc
-alias ,clear-cache='\
-    $ ls -d ~/Library/Caches/*/ | grep -v "com.*" | xargs -n 1 sudo rm -rf || true \
-    && sudo rm -rf ~/.cache/* || true'
-
 alias ,www="python3 -m http.server 6969"
 
 # Docker

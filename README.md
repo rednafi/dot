@@ -11,7 +11,6 @@ Before OS reinstallation, perform the following steps:
     * `.zshrc`, `.zsh_history`, `.zprofile`
     * `.gitconfig`
     * `.editorconfig`
-    * `.ovpn` config
     * `.env` files and the credentials of disparate projects
 
 ## Post-reinstall

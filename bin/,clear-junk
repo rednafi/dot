@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# Enforce strict error handling.
+set -euo pipefail
+
+# Deletes the contents of the specified directory.
+# Arguments:
+#   dir - Directory path to clean up.
+delete_directory_contents() {
+    local dir="$1"
+    if [[ -d "${dir}" ]]; then
+        echo "Deleting contents of ${dir}..."
+        sudo find "${dir}" -mindepth 1 -exec rm -rf {} + || true
+    else
+        echo "${dir} does not exist or is not a directory."
+    fi
+}
+
+# Define cache directories to clean.
+# Use $HOME to represent the user's home directory.
+declare -A directories=(
+    [system_caches]="/Library/Caches"
+    [user_caches]="${HOME}/Library/Caches"
+    [temporary_files]="/private/var/folders"
+    [logs]="/private/var/log"
+    [user_logs]="${HOME}/Library/Logs"
+    [trash]="${HOME}/.Trash"
+    [chrome_cache]="${HOME}/Library/Caches/Google/Chrome"
+    [chrome_support]="${HOME}/Library/Application Support/Google/Chrome"
+    [firefox_cache]="${HOME}/Library/Caches/Firefox/Profiles"
+    [firefox_support]="${HOME}/Library/Application Support/Firefox"
+    [safari_cache]="${HOME}/Library/Caches/com.apple.Safari"
+    [safari_support]="${HOME}/Library/Application Support/Safari"
+    [edge_cache]="${HOME}/Library/Caches/Microsoft Edge"
+    [edge_support]="${HOME}/Library/Application Support/Microsoft Edge"
+)
+
+# Loop through each directory and delete its contents.
+for dir_ref in "${!directories[@]}"; do
+    dir="${directories[${dir_ref}]}"
+    delete_directory_contents "${dir}"
+done
+
+echo "Cleanup complete."
+
+# Suggest restarting the system to ensure all changes take effect.
+echo "Consider restarting your Mac to ensure all changes take effect."

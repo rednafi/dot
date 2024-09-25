@@ -85,10 +85,10 @@ CDPATH="$CDPATH:$HOME/canvas"
 # PORCELAIN
 ##########################################
 
-# Go
-PATH=$PATH:~/go/bin
-
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="$PATH:~/go/bin"
 
 # Editor
 export EDITOR=micro
