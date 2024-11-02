@@ -42,7 +42,7 @@ for plugin in $github_plugins; do
 done
 
 # History options
-setopt SHARE_HISTORY         # Enable interactive history sharing between tabs
+setopt SHARE_HISTORY          # Enable interactive history sharing between tabs
 setopt INC_APPEND_HISTORY     # Append new history entries in real-time
 setopt HIST_IGNORE_ALL_DUPS   # Ignore duplicate commands
 setopt HIST_REDUCE_BLANKS     # Reduce consecutive blanks
