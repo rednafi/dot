@@ -27,3 +27,5 @@
 [user]
 	email = redowan.nafi@gmail.com
 	name = rednafi
+[credential]
+	helper = osxkeychain

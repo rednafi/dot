@@ -36,22 +36,20 @@ for plugin in $github_plugins; do
 
     if [[ ! -d $plugin_dir ]]; then
         mkdir -p "$plugin_dir" && git clone --depth 1 \
-            --recursive "https://github.com/$plugin.git" "$plugin_dir" > /dev/null 2>&1 &
+            "https://github.com/$plugin.git" "$plugin_dir" &> /dev/null &
     fi
+done
 
+wait
+
+for plugin in $github_plugins; do
+    plugin_dir=$zsh_plugins_dir/$plugin
     for initscript in ${plugin#*/}.zsh ${plugin#*/}.plugin.zsh ${plugin#*/}.sh; do
         script_path=$plugin_dir/$initscript
 
         [[ -f $script_path ]] && source $script_path && break
     done
 done
-
-wait
-
-# Prompt
-precmd() { print }
-PS1="%{%F{yellow}%}%n@%{%f%}%{%F{yellow}%}%m:%{%F{cyan}%}% %(5~|%-1~/.../%3~|%4~)
-%{%f%}$ "
 
 # Enable interactive history sharing between tabs
 setopt SHARE_HISTORY
@@ -86,12 +84,15 @@ CDPATH="$CDPATH:$HOME/canvas"
 ##########################################
 
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.local/share/uv/python:$PATH"
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="$PATH:~/go/bin"
+export PATH="$PATH:$HOME/go/bin"
 
 # Editor
 export EDITOR=micro
 export VISUAL="code --wait"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(direnv hook zsh)"
+eval "$(starship init zsh)"

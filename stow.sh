@@ -14,6 +14,7 @@ STOW=(
     ssh
     term
     zsh
+    starship
 )
 
 print_header "DOTFILE STOWER"
