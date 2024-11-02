@@ -1,39 +1,38 @@
 # Don't print a new line at the start of the prompt
 add_newline = true
 
-# Use custom format
-format = """
-$username$hostname in $directory$git_branch$git_status
-$character"""
-
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
+
+# Use custom format with adjusted separators
+format = '''
+$username$hostname:$directory $git_branch$git_status$fill
+$character'''
+
+[fill]
+symbol = ''
 
 # Username settings
 [username]
 show_always = true
 style_root = "bold red"
-style_user = "bold yellow"
-format = "[$user]($style) "
+style_user = "bold cyan"
+format = "[$user]($style)"
 disabled = false
 
 # Hostname settings
 [hostname]
 ssh_only = false
-format =  "on [$hostname](bold green)"
+format =  "[@$hostname](bold cyan)"
 trim_at = ".companyname.com"
 disabled = false
 
 # Directory indicator
 [directory]
 read_only = "🔒"
-style = "bold cyan"
+style = "bold yellow"
 read_only_style = "red"
 truncation_length = 8
 truncation_symbol = "../"
-format = "[$read_only]($read_only_style)[$path]($style) "
+format = "[$path]($style)"
 disabled = false
-
-# git settings
-[git_branch]
-symbol = "🌱 "
