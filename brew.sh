@@ -19,9 +19,9 @@ FORMULAE=(
     jq
     micro
     neofetch
-    parallel
-    python@3.12
+    python@3.13
     shellcheck
+    starship
     stow
     tree
     watch
