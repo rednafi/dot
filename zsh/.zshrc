@@ -15,7 +15,7 @@ zstyle ':completion:*' menu select
 # Plugins
 github_plugins=(
     zsh-users/zsh-autosuggestions
-    zsh-users/zsh-completions
+    marlonrichert/zsh-autocomplete
     zsh-users/zsh-history-substring-search
     zsh-users/zsh-syntax-highlighting  # Must be last
 )
