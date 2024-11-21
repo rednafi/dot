@@ -2,11 +2,11 @@
 add_newline = true
 
 # Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 10
+scan_timeout = 1
 
 # Use custom format with adjusted separators
 format = """
-$username$hostname:$directory $git_branch$git_status
+$username$hostname:$directory $git_branch
 $character"""
 
 # Username settings
@@ -20,7 +20,7 @@ disabled = false
 # Hostname settings
 [hostname]
 ssh_only = false
-format =  "[@$hostname](bold cyan)"
+format = "[@$hostname](bold cyan)"
 disabled = false
 
 # Directory indicator
@@ -32,4 +32,3 @@ truncation_length = 8
 truncation_symbol = "../"
 format = "[$path]($style)"
 disabled = false
-
