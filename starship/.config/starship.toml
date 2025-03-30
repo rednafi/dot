@@ -2,7 +2,7 @@
 add_newline = true
 
 # Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 1
+scan_timeout = 0
 
 # Use custom format with adjusted separators
 format = """

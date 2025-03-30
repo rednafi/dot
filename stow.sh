@@ -12,17 +12,17 @@ STOW=(
     git
     shellcheck
     ssh
-    term
+    ghostty
     zsh
     starship
 )
 
 print_header "DOTFILE STOWER"
 print_info "- stowing config files..."
-stow -v -R -t ~ "${STOW[@]}"
+stow --verbose --restow --target ~ "${STOW[@]}"
 
 print_info "- stowing scripts..."
-sudo stow -v -R -t /usr/local/bin bin
+sudo stow --verbose --restow --target /usr/local/bin bin
 
 print_info "- permissions for scripts..."
 find /usr/local/bin -type f -name "*.sh" -exec chmod +x {} +

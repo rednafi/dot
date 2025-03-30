@@ -2,6 +2,9 @@
 # BASIC SETUP
 # ==============================
 
+# Uncomment this to profile the startup time of zsh
+# zmodload zsh/zprof
+
 # Set the prompt
 eval "$(starship init zsh)"
 
@@ -89,3 +92,8 @@ export VISUAL="code --wait"
 
 # CD path for quick navigation
 CDPATH="$CDPATH:$HOME/canvas"
+
+export FLYCTL_INSTALL="/Users/rednafi/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+#zprof

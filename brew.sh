@@ -33,6 +33,7 @@ CASKS=(
     "aldente"
     "visual-studio-code"
     "google-chrome"
+    "ghostty"
 )
 
 FONTS=(
