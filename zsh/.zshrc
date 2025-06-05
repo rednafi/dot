@@ -1,16 +1,18 @@
 # ==============================
-# BASIC SETUP
+# ZSH CONFIGURATION
 # ==============================
 
-# Uncomment this to profile the startup time of zsh
-# zmodload zsh/zprof
+# Uncomment to profile startup time
+#zmodload zsh/zprof
+
+# ==============================
+# PROMPT & KEY BINDINGS
+# ==============================
 
 # Set the prompt
-eval "$(starship init zsh)"
-
-# Load aliases and environment variables
-source ~/.zsh_aliases
-source ~/.zshenv
+precmd() { print }
+PS1="%{%F{yellow}%}%n@%{%f%}%{%F{yellow}%}%m:%{%F{cyan}%}% %(5~|%-1~/.../%3~|%4~)
+%{%f%}$ "
 
 # Key bindings and color settings
 bindkey -e
@@ -33,7 +35,7 @@ HISTSIZE=10000
 SAVEHIST=1000000
 
 # ==============================
-# ZSH COMPLETION SETTINGS
+# COMPLETION SETTINGS
 # ==============================
 
 # Case-insensitive and substring matching for completion
@@ -66,23 +68,18 @@ for plugin in $github_plugins; do
     source "$plugin_dir/${plugin#*/}.plugin.zsh" &> /dev/null || true
 done
 
-# ==============================
-# OPTIONAL TOOLS (Deferred Background Load)
-# ==============================
-
-{
-    # Load direnv
-    command -v direnv &>/dev/null && eval "$(direnv hook zsh)"
-} &!
-
-# Load sdkman
-export SDKMAN_DIR="$HOME/.sdkman"
-alias sdk="source $SDKMAN_DIR/bin/sdkman-init.sh && sdk"
+# Load direnv
+eval "$(direnv hook zsh)"
 
 # ==============================
-# PATH SETUP
+# ENVIRONMENT & PATH
 # ==============================
 
+# Load aliases and environment variables
+source ~/.zsh_aliases
+source ~/.zshenv
+
+# PATH configuration
 export PATH="/opt/homebrew/bin:$HOME/.local/share/uv/python:/opt/homebrew/opt/sqlite/bin:\
 /opt/homebrew/opt/coreutils/libexec/gnubin:$HOME/go/bin:$PATH"
 
@@ -93,7 +90,5 @@ export VISUAL="code --wait"
 # CD path for quick navigation
 CDPATH="$CDPATH:$HOME/canvas"
 
-export FLYCTL_INSTALL="/Users/rednafi/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
+# Uncomment to see profiling results
 #zprof
