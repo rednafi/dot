@@ -1,3 +1,9 @@
+# Archived
+
+***I no longer use gnu-stow to manage my dotfiles. Managing the symlinks across multiple devices 
+turned out to be a pain. Currently, using chezmoi to [manage the dotfiles].***
+
+
 # [.] dot
 
 Dotfiles and workspace setup on macOS. GNU [stow] is used to manage the config files.
@@ -44,3 +50,4 @@ After OS reinstallation, perform these steps in order:
 * Double click on the `~/.conf.terminal` file and save it as a profile.
 
 [stow]: https://www.gnu.org/software/stow/
+[manage the dotfiles]: https://github.com/rednafi/dotfiles
